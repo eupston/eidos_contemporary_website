@@ -19,8 +19,3 @@ backend is listening on localhost:3001
 ``npm start``
 
 frontend is listening on localhost:3000
-
-new branch test
-
-
-test issue #2 in progress

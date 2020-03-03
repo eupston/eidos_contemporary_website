@@ -1,0 +1,13 @@
+Existing Issues/Task workflow:
+
+1. Look at issues in the backlog of a project on Github
+2. Assign an issue to yourself
+3. create feature branch from develop branch with the issue number and possibly short description I.E "2-new_end_point"
+4. Move the ticket to To Do if you plan on working on it or in progress if you are working on it
+5. When committing to a feature branch put hashtag and the number of the issue in the commit message. I.E. "#2 first commit"
+6. When your happy with your branch merge it into develop and test your changes work well.
+7. If all works well then we can decide best dates to push to release.
+
+Add new Issues/Task:
+
+--- To Do ---
