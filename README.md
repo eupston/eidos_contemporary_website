@@ -1,10 +1,10 @@
-##Eidos Contemporary Jewelry Website
+## Eidos Contemporary Jewelry Website
 
 
-###To Use:
+### To Use:
 
 
-####Launch Backend:
+#### Launch Backend:
 
 ``cd backend``
 
@@ -12,7 +12,7 @@
 
 backend is listening on localhost:3001 
 
-####Launch Frontend:
+#### Launch Frontend:
 
 ``cd frontend``
 
