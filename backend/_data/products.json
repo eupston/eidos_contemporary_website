@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Gold Ring one",
+    "price": "$1000",
+    "quantity": "1",
+    "materials": ["18k yellow gold", "Lots of diamonds"],
+    "description": "Was made by the best.",
+    "display_on_site": "True",
+    "customizable": "True",
+    "notes": ""
+  }
+]

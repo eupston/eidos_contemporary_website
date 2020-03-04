@@ -3,6 +3,17 @@
         "name": "Billy Bob",
         "email": "example@gmail.com",
         "phone": "555-555-5555",
-        "status": "new"
+        "address": {
+            "country": "US",
+            "state": "New Mexico",
+            "city": "Santa Fe",
+            "street": "28 Alcalde street",
+            "zipcode": "87506"
+        },
+        "status": "new",
+        "ring_size": "13",
+        "purchases": {"Product.Object._id"},
+        "products_viewed": "",
+        "customer_notes": ""
     }
 ]
