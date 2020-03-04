@@ -3,6 +3,7 @@
 
 ### To Use:
 
+npm install
 
 #### Launch Backend:
 
