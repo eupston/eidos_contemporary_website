@@ -12,8 +12,10 @@
         },
         "status": "new",
         "ring_size": "13",
-        "purchases": {"Product.Object._id"},
+        "purchases": ["Product.Object._id"],
         "products_viewed": "",
-        "customer_notes": ""
+        "customer_notes": "",
+        "passwordResetToken": "String",
+        "passwordResetTokenExpiration": "Date"
     }
 ]
