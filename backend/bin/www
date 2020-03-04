@@ -4,30 +4,38 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('backend:server');
-var http = require('http');
+const app = require('../app');
+const debug = require('debug')('backend:server');
+const http = require('http');
+const colors = require('colors');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3001');
+const port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
 
 /**
  * Create HTTP server.
- */
-
-var server = http.createServer(app);
-
-/**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+const server = app.listen(
+    port,
+    console.log(`App listening on port ${process.env.PORT}!`.yellow.bold)
+  );
 server.on('error', onError);
 server.on('listening', onListening);
+
+
+
+// Handle promise rejections
+process.on('unhandledRejection', (err, promise) => {
+  console.log(`Error: ${err.message}`.red.bold);
+  // Close server and exit
+  server.close(() => process.exit(1));
+});
 
 /**
  * Normalize a port into a number, string, or false.
