@@ -15,6 +15,7 @@
         "purchases": ["Product.Object._id"],
         "products_viewed": "",
         "customer_notes": "",
+        "password": "",
         "passwordResetToken": "String",
         "passwordResetTokenExpiration": "Date"
     }
