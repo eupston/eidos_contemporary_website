@@ -12,7 +12,9 @@ module.exports = (req, res, next) => {
   let decodedToken;
   try {
       //TODO put publicKey in config.env
-      decodedToken: jwt.verify(token, 'secret');
+      console.log(token);
+      decodedToken = jwt.verify(token, 'secret');
+      console.log(decodedToken);
   }
   catch(err){
       err.statusCode = 500;
