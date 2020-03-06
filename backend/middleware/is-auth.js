@@ -11,6 +11,7 @@ module.exports = (req, res, next) => {
   const token = authHeader.split(' ')[1]; // request on frontend will be 'Bearer ' + token
   let decodedToken;
   try {
+      //TODO put publicKey in config.env
       decodedToken: jwt.verify(token, 'secret');
   }
   catch(err){
