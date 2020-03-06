@@ -1,39 +1,42 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 // @desc    Logs user in
 // @route   GET /api/v1/auth/login
 // @access  PUBLIC
 exports.postLogin = async (req, res, next) => {
     const email = req.body.email;
-    const password = req.body.password.toString();
+    const password = req.body.password;
+    let loadedUser;
+
     try {
         const user = await User.findOne({email: email});
         if (!user) {
-            return res.status(422)
+            return res.status(401)
                 .json({
                     success: false,
                     data: "invalid email"
                 });
         }
         else {
+            loadedUser = user;
             bcrypt
                 .compare(password, user.password)
                 .then(doMatch => {
                     if (doMatch) {
-                        req.session.isLoggedIn = true;
-                        req.session.user = user;
-                        return req.session.save(err => {
-                            console.log(err);
-                            res
-                            .status(200)
-                            .json({
-                                success: true,
-                            });
-                        });
+                        const token = jwt.sign({
+                            email: loadedUser.email,
+                            userId: loadedUser._id.toString()
+                        }, 'secret', {expiresIn:'1h'});
+                        return res.status(200)
+                                .json({
+                                    token: token,
+                                    userId:loadedUser._id.toString()
+                                 });
                     }
                     else {
-                        return res.status(422)
+                        return res.status(401)
                             .json({
                                 success: false,
                                 data: "invalid password"
