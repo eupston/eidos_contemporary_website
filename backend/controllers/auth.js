@@ -1,11 +1,12 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const asyncHandler = require('../middleware/async');
 
 // @desc    Logs user in
 // @route   GET /api/v1/auth/login
 // @access  PUBLIC
-exports.postLogin = async (req, res, next) => {
+exports.postLogin = asyncHandler(async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
     let loadedUser;
@@ -51,4 +52,4 @@ exports.postLogin = async (req, res, next) => {
     catch (err){
         res.status(400).json({ success: false, data:err });
     }
-};
+});
