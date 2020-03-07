@@ -4,7 +4,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const colors = require('colors');
+
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/error');
 
@@ -17,8 +17,10 @@ connectDB();
 // Route files
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
 
 const app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,17 +28,22 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 
-// Body parser
+// Body parser & MiddleWare
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use((req,res,next) => {
+    res.setHeader('Access-Control-Allow-Headers','Content-Type, Authorization');
+    next();
+});
 
 
 // Mount routers
 app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/auth', authRouter);
 
 
 app.use(errorHandler);

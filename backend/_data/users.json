@@ -17,6 +17,7 @@
         "customer_notes": "",
         "password": "",
         "passwordResetToken": "String",
-        "passwordResetTokenExpiration": "Date"
+        "passwordResetTokenExpiration": "Date",
+        "isAdmin": false
     }
 ]
