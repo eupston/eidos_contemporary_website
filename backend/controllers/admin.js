@@ -1,38 +1,94 @@
 const Product = require('../models/Product');
 const asyncHandler = require('../middleware/async');
-const User = require('../models/User');
 const ErrorResponse = require('../utils/errorResponse');
 
-
 // @desc    Add Product to Database
-// @route   GET /api/v1/admin/add-product
+// @route   GET /api/v1/admin/products
 // @access  PRIVATE
-exports.postAddProduct = asyncHandler(async (req, res, next) => {
-    const user = await User.findById(req.userId);
-    if(!user.isAdmin){
-        return next(
-            new ErrorResponse(`User ${user.email} is not an admin `,
-                401)
-        );
-    }
-    const title = req.body.title;
-    const imageUrl = req.body.imageUrl;
-    const price = req.body.price;
-    const description = req.body.description;
-    const display_on_site = req.body.display_on_site;
-    const customizable = req.body.customizable;
-    const product = new Product({
-        title: title,
-        price: price,
-        description: description,
-        imageUrl: imageUrl,
-        display_on_site: display_on_site,
-        customizable: customizable
-    });
-    const result = await product.save();
-    res.status(200)
+exports.createProduct = asyncHandler(async (req, res, next) => {
+    const product = await Product.create(req.body);
+    res.status(201)
         .json({
             success: true,
-            data: result
+            data: product
+        });
+});
+
+// @desc    Gets All Product from Database
+// @route   POST /api/v1/admin/products
+// @access  PRIVATE
+exports.getProducts = asyncHandler(async (req, res, next) => {
+    const products = await Product.find();
+    res
+        .status(200)
+        .json({
+            success: true,
+            data: products
+        });
+
+});
+
+// @desc    Get Product by id
+// @route   POST /api/v1/admin/products/:id
+// @access  PRIVATE
+exports.getProduct = asyncHandler(async (req, res, next) => {
+    const product = await Product.findById(req.params.id);
+    if (!product){
+        return next(
+            new ErrorResponse(`Product not found with id of ${req.params.id}`,
+                404)
+        );
+    }
+    res
+        .status(200)
+        .json({
+            success: true,
+            data: product
+        });
+});
+
+// @desc    Update a Product by id
+// @route   PUT /api/v1/admin/products/:id
+// @access  PRIVATE
+exports.updateProduct = asyncHandler(async (req, res, next) => {
+    const product = await Product.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+            new: true,
+            runValidators: true
+        });
+
+    if (!product){
+        return next(
+            new ErrorResponse(`Product not found with id of ${req.params.id}`,
+                404)
+        );
+    }
+    res
+        .status(200)
+        .json({
+            success: true,
+            data: product
+        });
+});
+
+// @desc    Delete a Product
+// @route   DELETE /api/v1/products/:id
+// @access  PRIVATE
+exports.deleteProduct = asyncHandler(async (req, res, next) => {
+    const product = await Product.findByIdAndDelete(req.params.id);
+    if (!product){
+        return next(
+            new ErrorResponse(`Product not found with id of ${req.params.id}`,
+                404)
+        );
+    }
+
+    res
+        .status(200)
+        .json({
+            success: true,
+            data: product
         });
 });

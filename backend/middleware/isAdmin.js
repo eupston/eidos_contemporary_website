@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const ErrorResponse = require('../utils/errorResponse');
+const User = require('../models/User');
 
 module.exports = async (req, res, next) => {
 
@@ -28,6 +29,13 @@ module.exports = async (req, res, next) => {
               401)
       );
   }
-  req.userId = decodedToken.userId;
+
+    const user = await User.findById(decodedToken.userId);
+    if(!user.isAdmin){
+        return next(
+            new ErrorResponse(`User ${user.email} is not an admin `,
+                401)
+        );
+    }
   next();
 };
