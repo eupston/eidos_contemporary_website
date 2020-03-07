@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ProductSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String,
         required: [true, 'Please provide a name'],
         unique: true,
@@ -15,7 +15,10 @@ const ProductSchema = new mongoose.Schema({
     quantity : {
         type: Number,
         required: false,
-
+    },
+    imageUrl: {
+        type: String,
+        required: true
     },
     materials: {
       type: String,
@@ -47,7 +50,5 @@ const ProductSchema = new mongoose.Schema({
     }
 
 });
-
-
 
 module.exports = mongoose.model('Product', ProductSchema);

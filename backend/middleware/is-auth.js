@@ -1,29 +1,32 @@
 const jwt = require('jsonwebtoken');
+const ErrorResponse = require('../utils/errorResponse');
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
 
     const authHeader = req.get('Authorization');
     if(!authHeader){
-        const error = new Error('Not authenticated.');
-        error.statusCode = 401;
-        throw error;
+        return next(
+            new ErrorResponse('Not authenticated.',
+                401)
+            );
     }
   const token = authHeader.split(' ')[1]; // request on frontend will be 'Bearer ' + token
   let decodedToken;
   try {
       //TODO put publicKey in config.env
-      console.log(token);
       decodedToken = jwt.verify(token, 'secret');
-      console.log(decodedToken);
   }
   catch(err){
-      err.statusCode = 500;
-      throw err;
+      return next(
+          new ErrorResponse(err,
+              500)
+      );
   }
   if(!decodedToken){
-      const error = new Error('Not authenticated.');
-      error.statusCode = 401;
-      throw error;
+      return next(
+          new ErrorResponse('Not authenticated.',
+              401)
+      );
   }
   req.userId = decodedToken.userId;
   next();

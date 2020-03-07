@@ -26,6 +26,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         maxlength: [20, 'Phone number cannot be longer than 20 characters']
     },
+    isAdmin: {
+      type: Boolean,
+      required: true
+    },
     status : {
         type: String,
         enum: [

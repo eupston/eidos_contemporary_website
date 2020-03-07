@@ -6,13 +6,13 @@ const asyncHandler = require('../middleware/async');
 // @desc    Logs user in
 // @route   GET /api/v1/auth/login
 // @access  PUBLIC
-exports.postLogin = asyncHandler(async (req, res, next) => {
+exports.postLogin = async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
     let loadedUser;
-
     try {
         const user = await User.findOne({email: email});
+        console.log(user);
         if (!user) {
             return res.status(401)
                 .json({
@@ -52,4 +52,4 @@ exports.postLogin = asyncHandler(async (req, res, next) => {
     catch (err){
         res.status(400).json({ success: false, data:err });
     }
-});
+};
