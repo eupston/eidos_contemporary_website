@@ -14,7 +14,7 @@ exports.getUsers = async (req, res, next) => {
             data: users
         });
     }catch (err){
-        res.status(400).json({ success: false });
+        res.status(400).json({ success: false, msg: err.message });
     }
     
 };
@@ -51,6 +51,6 @@ exports.createUser = async (req, res, next) => {
             data: user
         });
     }catch (err){
-        res.status(400).json({ success: false });
+        res.status(400).json({ success: false, msg: err.message });
     }
 };
