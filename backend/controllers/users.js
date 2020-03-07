@@ -6,13 +6,73 @@ const User = require('../models/User');
 // @route   GET /api/v1/users
 // @access  PUBLIC
 exports.getUsers = asyncHandler(async (req, res, next) => {
+    let query;
 
-    const users = await User.find();
+    const reqQuery = { ...req.query };
+
+    // Fields to exclude
+    const removeFields = ['select','sort','limit', 'page', 'limit'];
+    removeFields.forEach(p => delete reqQuery[p]);
+
+    let queryStr = JSON.stringify(reqQuery);
+    console.log(queryStr);
+
+    // https://docs.mongodb.com/manual/reference/operator/query/gt/
+    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => {
+        return `$${match}`;
+    });
+
+    console.log(queryStr);
+
+    query = User.find(JSON.parse(queryStr));
+
+    // Select Fields
+    // https://mongoosejs.com/docs/queries.html
+    if(req.query.select) {
+        const fields = req.query.select.split(',').join(' ');
+        query = query.select(fields);
+    }
+
+    if(req.query.sort) {
+        const sortBy = req.query.sort.split(',').join(' ');
+        query = query.sort(sortBy);
+    } else {
+        query = query.sort('-createdAt');
+    }
+
+    // Pagination
+    const page = parseInt(req.query.page, 10) || 1;
+    const limit = parseInt(req.query.limit, 10) || 5;
+    const startIndex = (page -1) * limit;
+    const endIndex = page * limit;
+    const total = await User.countDocuments();
+
+    query = query.skip(startIndex).limit(limit);
+
+    const users = await query;
+
+    const pagination = {};
+
+    if(endIndex < total){
+        pagination.next = {
+            page: page + 1,
+            limit
+        }
+    }
+
+    if (startIndex > 0) {
+        pagination.prev = {
+            page: page -1,
+            limit
+        }
+    }
 
     res
     .status(200)
     .json({
         success: true,
+        count: users.length,
+        pagination,
         data: users
     });
     

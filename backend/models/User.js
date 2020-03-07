@@ -18,6 +18,9 @@ const UserSchema = new mongoose.Schema({
             'Please add a valid email'
         ]
     },
+    ring_size: {
+        type: Number
+    },
     password:{
         type: String,
         required: [true, 'Password must be longer than 8 characters'],
