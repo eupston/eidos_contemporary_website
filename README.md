@@ -26,8 +26,8 @@ frontend is listening on localhost:3000
 ### Current Working Endpoints:
 ```
 localhost:5000/api/v1/users     --> GET all users
-
               /api/v1/users/:id --> GET one user by ID  (get from DB with get all)
-              
-              /api/v1/users     --> POST
+              /api/v1/users     --> POST (name, email, and password are required)
+              /api/v1/users/:id --> DELETE
+              /api/v1/users/:id --> PUT
             
