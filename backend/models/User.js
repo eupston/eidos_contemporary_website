@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema({
         trim: true,
         maxlength: [30, 'Name cannot be longer than 30 characters']
     },
+    urlName: String,
     email: {
         type: String,
         required: [true, 'Please provide an email'],
@@ -19,7 +20,7 @@ const UserSchema = new mongoose.Schema({
     },
     password:{
         type: String,
-        required: [true, 'Must be longer than 8 characters'],
+        required: [true, 'Password must be longer than 8 characters'],
     },
     phone: {
         type: String,
@@ -37,5 +38,11 @@ const UserSchema = new mongoose.Schema({
         default: Date.now
     } 
 });
+
+UserSchema.pre('save', function(next) {
+    this.urlName = this.name.toString().replace(/ /g, '-').toLowerCase();
+    next();
+})
+
 
 module.exports = mongoose.model('User', UserSchema);
