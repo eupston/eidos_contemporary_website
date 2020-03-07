@@ -16,7 +16,51 @@
         "products_viewed": ["Product.Object._id"],
         "products_requested": ["Product.Object._id"],
         "customer_notes": "",
-        "password": "",
+        "password": "testestest",
+        "passwordResetToken": "String",
+        "passwordResetTokenExpiration": "Date",
+        "isAdmin": false
+    },
+    {
+        "name": "Philly Glob",
+        "email": "example2@gmail.com",
+        "phone": "555-555-5555",
+        "address": {
+            "country": "US",
+            "state": "New Mexico",
+            "city": "Santa Fe",
+            "street": "814 Camino Acoma",
+            "zipcode": "87505"
+        },
+        "status": "new",
+        "ring_size": "10",
+        "purchases": ["Product.Object._id"],
+        "products_viewed": ["Product.Object._id"],
+        "products_requested": ["Product.Object._id"],
+        "customer_notes": "",
+        "password": "testestest",
+        "passwordResetToken": "String",
+        "passwordResetTokenExpiration": "Date",
+        "isAdmin": false
+    },
+    {
+        "name": "Jilly Slob",
+        "email": "example3@gmail.com",
+        "phone": "555-555-5555",
+        "address": {
+            "country": "US",
+            "state": "New Mexico",
+            "city": "Albuquerque",
+            "street": "218 Princeton Dr SE",
+            "zipcode": "87106"
+        },
+        "status": "new",
+        "ring_size": "14",
+        "purchases": ["Product.Object._id"],
+        "products_viewed": ["Product.Object._id"],
+        "products_requested": ["Product.Object._id"],
+        "customer_notes": "",
+        "password": "testestest",
         "passwordResetToken": "String",
         "passwordResetTokenExpiration": "Date",
         "isAdmin": false
