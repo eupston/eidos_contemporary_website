@@ -24,7 +24,7 @@ const errorHandler = (err, req, res, next) => {
         const message = Object.values(err.errors)
             .map(val => val.message)
             .toString()
-            .replace(',', ", and ");
+            .replace(/,/g, ", and ");
         error = new ErrorResponse(message, 400);
     }
 
