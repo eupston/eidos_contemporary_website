@@ -7,6 +7,10 @@
 
 ** You must have config.env file to connect to DB ** 
 
+``node seeder -i`` to insert data from _data folder
+
+``node seeder -d`` to erase all data
+
 #### Launch Backend:
 
 ``cd backend``
@@ -26,8 +30,7 @@ frontend is listening on localhost:3000
 ### Current Working Endpoints:
 ```
 localhost:5000/api/v1/users     --> GET all users
-
               /api/v1/users/:id --> GET one user by ID  (get from DB with get all)
-              
               /api/v1/users     --> POST
-              
+              /api/v1/users/:id --> PUT 
+              /api/v1/users/:id --> DELETE
