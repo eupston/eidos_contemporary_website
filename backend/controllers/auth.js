@@ -60,7 +60,6 @@ exports.postSignup = asyncHandler(async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(password, 12);
     const payload = {...req.body, password:hashedPassword, isAdmin:false};
     const user = await User.create(payload);
-
     return res.status(201)
         .json({
             success: true,
