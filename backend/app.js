@@ -19,6 +19,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const adminRouter = require('./routes/admin');
+const shopRouter = require('./routes/shop');
 
 const app = express();
 
@@ -46,6 +47,7 @@ app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/admin', adminRouter);
+app.use('/api/v1/shop', shopRouter);
 
 
 app.use(errorHandler);
