@@ -1,6 +1,6 @@
 [
   {
-    "name": "Gold Ring one",
+    "title": "Gold Ring one",
     "price": "$1000",
     "quantity": "1",
     "materials": ["18k yellow gold", "Lots of diamonds"],
@@ -8,6 +8,26 @@
     "display_on_site": "True",
     "customizable": "True",
     "notes": "",
-    "views": 0
+    "views": 0,
+    "users": ["5e643d2d2f99b32b24cff9b8"]
+  },
+  {
+    "title": "Gold necklace",
+    "price": 999.99,
+    "description": "very shiny",
+    "imageUrl": "https://www.jewelimage.com",
+    "display_on_site": true,
+    "customizable": true,
+    "users": []
+  },
+  {
+    "title": "Gold necklace 2",
+    "price": 999.99,
+    "description": "very very shiny",
+    "imageUrl": "https://www.jewelimage.com",
+    "display_on_site": true,
+    "customizable": true,
+    "users": ["5e643d2d2f99b32b24cff9b8","5e643d2d2f99b32b24cff9b9","5e643d2d2f99b32b24cff9b7"]
   }
+  
 ]

@@ -4,9 +4,13 @@ const User = require('../models/User');
 
 // @desc    Get all Users
 // @route   GET /api/v1/users
+// @route   GET /api/v1/users/:userId/products
 // @access  PUBLIC
 exports.getUsers = asyncHandler(async (req, res, next) => {
     let query;
+
+
+
 
     const reqQuery = { ...req.query };
 
