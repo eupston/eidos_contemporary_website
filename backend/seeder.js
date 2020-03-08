@@ -1,7 +1,8 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
-const colors = require('colors');
+const bcrypt = require('bcryptjs');
 const dotenv = require('dotenv');
+const colors = require('colors');
 
 // Load env vars
 dotenv.config({ path: './config/config.env' });
@@ -21,10 +22,19 @@ const users = JSON.parse(
     fs.readFileSync(`${__dirname}/_data/users.json`, 'utf-8')
 );
 
+
 // Import into DB
 const importData = async () => {
     try {
-        await User.create(users);
+        // Encrypt password on DB
+        const encryptedUserPromises = users.map(async user => {
+            const hashedPassword = await bcrypt.hash(user.password, 12);
+            return { ...user, password: hashedPassword };
+        });
+
+        const encryptedUsers = await Promise.all(encryptedUserPromises);
+
+        await User.create(encryptedUsers);
 
         console.log('Data Imported...'.green.inverse);
         process.exit();

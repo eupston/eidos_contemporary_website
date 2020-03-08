@@ -19,7 +19,7 @@
         "password": "testestest",
         "passwordResetToken": "String",
         "passwordResetTokenExpiration": "Date",
-        "isAdmin": false
+        "isAdmin": true
     },
     {
         "name": "Philly Glob",
