@@ -12,7 +12,6 @@ exports.postLogin = asyncHandler(async (req, res, next) => {
     const password = req.body.password;
     let loadedUser;
     const user = await User.findOne({email: email});
-    console.log(user);
     if (!user) {
         return next(
             new ErrorResponse("Email Not Found",
@@ -43,4 +42,28 @@ exports.postLogin = asyncHandler(async (req, res, next) => {
             );
         }
     }
+});
+
+// @desc    signs user in
+// @route   GET /api/v1/auth/signup
+// @access  PUBLIC
+exports.postSignup = asyncHandler(async (req, res, next) => {
+    const password = req.body.password;
+    const confirmPassword = req.body.confirmPassword;
+    console.log(req.body);
+    if(password !== confirmPassword){
+        return next(
+            new ErrorResponse("Passwords do not Match",
+                400)
+        );
+    }
+    const hashedPassword = await bcrypt.hash(password, 12);
+    const payload = {...req.body, password:hashedPassword, isAdmin:false};
+    const user = await User.create(payload);
+
+    return res.status(201)
+        .json({
+            success: true,
+            data: user
+        });
 });

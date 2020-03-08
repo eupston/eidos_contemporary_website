@@ -1,7 +1,8 @@
 var express = require('express');
 
 const {
-    postLogin
+    postLogin,
+    postSignup
 } = require('../controllers/auth');
 
 var router = express.Router();
@@ -10,6 +11,7 @@ var router = express.Router();
 router.post("/login", postLogin);
 
 // Signup routes
+router.post("/signup", postSignup);
 
 
 module.exports = router;
