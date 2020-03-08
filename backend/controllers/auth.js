@@ -28,7 +28,7 @@ exports.postLogin = asyncHandler(async (req, res, next) => {
                     email: loadedUser.email,
                     userId: loadedUser._id.toString()
                 },
-                'secret', {expiresIn: '1h'}
+                process.env.JWT_PRIVATE_KEY, {expiresIn: '1h'}
             );
             return res.status(200)
                 .json({
