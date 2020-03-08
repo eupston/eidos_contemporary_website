@@ -1,5 +1,4 @@
 var express = require('express');
-const isAuth = require('../middleware/is-auth');
 
 const {
     postLogin

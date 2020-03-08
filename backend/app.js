@@ -18,6 +18,7 @@ connectDB();
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const adminRouter = require('./routes/admin');
 
 const app = express();
 
@@ -44,6 +45,7 @@ app.use((req,res,next) => {
 app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/admin', adminRouter);
 
 
 app.use(errorHandler);
