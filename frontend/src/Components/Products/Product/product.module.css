@@ -1,0 +1,9 @@
+.Product{
+    width: 380px;
+    height: 360px;
+    text-align: center;
+    box-shadow:  0 5px 15px grey;
+    margin: 20px;
+    padding: 20px;
+    display: block;
+}
