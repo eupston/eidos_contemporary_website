@@ -14,6 +14,8 @@ class StickyNavbar extends Component {
                     <a href="/our-story" className="nav-link" id="navbar_our_story">Our Story</a>
                     <a href="/custom" className="nav-link" id="navbar_custom">Custom</a>
                     <a href="/contact" className="nav-link" id="navbar_contact" >Contact</a>
+                    <a href="/login" className="nav-link" id="navbar_login" >Login</a>
+                    <a href="/signup" className="nav-link" id="navbar_signup" >Signup</a>
                 </nav>
                 <hr></hr>
             </div>
