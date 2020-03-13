@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Products from './Components/Products/Products';
+import Navbar from './Components/Navbar/Navbar';
 
 class App extends Component {
 
@@ -9,7 +10,7 @@ class App extends Component {
   render() {
    return (
        <div className="App">
-           <h1>Eidos Contemporary</h1>
+           <Navbar/>
            <Products productNumber={15}/>
         </div>
     );

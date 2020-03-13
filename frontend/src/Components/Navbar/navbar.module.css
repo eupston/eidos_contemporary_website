@@ -1,0 +1,30 @@
+.Navbar {
+    /*position: fixed; !* Set the navbar to fixed position *!*/
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    background-color: #ffffff;
+    overflow: hidden;
+
+}
+
+.Navbar nav {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.Navbar a {
+    color: #6a94ac;
+    margin: 0px 40px 0px 40px;
+
+}
+
+.Navbar a:hover{
+    color: darkolivegreen;
+}
+
+.Navbar hr{
+    width:80%;
+    color: #6a94ac;
+
+}
