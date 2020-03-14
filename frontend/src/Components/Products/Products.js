@@ -11,9 +11,8 @@ class Products extends Component {
 
     productsQuery = (queryFilterParam) => {
         return({
-            query: `
-                {
-                  products(first:${this.props.productNumber}, query:"${queryFilterParam}"){
+            query: `query GetProducts($pages: Int!, $queryFilter: String!){
+                  products(first:$pages, query:$queryFilter){
                     edges {
                       node {
                         id
@@ -34,7 +33,11 @@ class Products extends Component {
                     }
                   }
                 }
-          `
+          `,
+            variables: {
+                pages: this.props.productNumber,
+                queryFilter: queryFilterParam
+            }
     })};
 
     async componentWillMount() {
