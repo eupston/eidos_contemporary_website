@@ -1,13 +1,13 @@
-.Login {
+.Auth {
     display: flex;
     justify-content: center; /* center horizontally */
     align-items: center; /* center vertically */
 
 }
-.Login form {
-    width: 50%;
+.Auth form {
+    width: 40%;
 }
-.Login button {
+.Auth button {
     margin-top: 20px;
     background-color: #6a94ac;
     border-color: #6a94ac;
@@ -15,20 +15,20 @@
 
 }
 
-.Login button:hover{
+.Auth button:hover{
     background-color: gray;
     border-color: #6a94ac;
     /*transform: translateY(0.1rem);*/
 }
 
-.Login button:focus,
-.Login button:active {
+.Auth button:focus,
+.Auth button:active {
     outline: none;
     box-shadow: none;
 }
 
 
-.Login label {
+.Auth label {
     margin-top: 20px;
 }
 

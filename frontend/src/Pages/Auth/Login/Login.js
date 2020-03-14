@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import classes from './login.module.css';
+import classes from '../auth.module.css';
 import ShopifyQuery from "../../../Utils/ShopifyQuery";
 import { Redirect } from "react-router-dom";
 
@@ -81,7 +81,7 @@ class Login extends Component {
                 <div className={classes.Error}>
                     {this.state.errors}
                 </div>
-                <div className={classes.Login}>
+                <div className={classes.Auth}>
                     <form onSubmit={e => this.loginHandler(e, {
                         email: this.state.loginForm.email.value,
                         password: this.state.loginForm.password.value
