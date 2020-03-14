@@ -65,6 +65,8 @@ class Login extends Component {
         if(errors.length === 0) {
             const accessToken = response.customerAccessTokenCreate.customerAccessToken.accessToken;
             this.setState({accessToken: accessToken, isLoggedIn: true});
+            const loginNavbar = document.getElementById("navbar_login");
+            loginNavbar.innerText = "Logout";
             console.log("logged in");
         }
         else{
