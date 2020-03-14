@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
+import {Route, Switch} from 'react-router-dom';
 import './App.css';
+
 import Products from './Components/Products/Products';
 import Navbar from './Components/Navbar/Navbar';
+import Login from './Pages/Auth/Login/Login';
 
 class App extends Component {
 
@@ -11,7 +14,11 @@ class App extends Component {
    return (
        <div className="App">
            <Navbar/>
-           <Products productNumber={15}/>
+           <Switch>
+               <Route path="/jewelry" render={() => <Products  productNumber={15}/>} />
+               <Route path="/login" render={() => <Login/>} />
+               <Route path="/" exact />
+           </Switch>
         </div>
     );
   };

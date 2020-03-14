@@ -1,0 +1,37 @@
+.Login {
+    display: flex;
+    justify-content: center; /* center horizontally */
+    align-items: center; /* center vertically */
+
+}
+.Login form {
+    width: 50%;
+}
+.Login button {
+    margin-top: 20px;
+    background-color: #6a94ac;
+    border-color: #6a94ac;
+    width: 30%;
+
+}
+
+.Login button:hover{
+    background-color: gray;
+    border-color: #6a94ac;
+    /*transform: translateY(0.1rem);*/
+}
+
+.Login button:focus,
+.Login button:active {
+    outline: none;
+    box-shadow: none;
+}
+
+
+.Login label {
+    margin-top: 20px;
+}
+
+.Error {
+    color: red;
+}
