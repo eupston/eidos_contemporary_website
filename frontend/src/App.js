@@ -16,7 +16,7 @@ class App extends Component {
        <div className="App">
            <Navbar/>
            <Switch>
-               <Route path="/jewelry" render={() => <Products  productNumber={15}/>} />
+               <Route path="/jewelry" render={() => <Products productNumber={15}/>} />
                <Route path="/login" render={() => <Login/>} />
                <Route path="/signup" render={() => <Signup/>} />
                <Route path="/" exact />

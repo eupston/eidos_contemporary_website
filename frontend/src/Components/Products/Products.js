@@ -6,42 +6,53 @@ import classes from './products.module.css';
 class Products extends Component {
 
     state = {
-        products: []
+        products: [],
     };
 
-    PRODUCTS_QUERY = {
-        query: `
-            {
-              products(first:${this.props.productNumber}){
-                edges {
-                  node {
-                    id
-                    title
-                    description
-                    images(first:2){
-                        edges{
-                            node {
-                                id
-                                originalSrc
-                                transformedSrc
+    productsQuery = (queryFilterParam) => {
+        return({
+            query: `
+                {
+                  products(first:${this.props.productNumber}, query:"${queryFilterParam}"){
+                    edges {
+                      node {
+                        id
+                        title
+                        description
+                        vendor
+                        productType
+                        images(first:2){
+                            edges{
+                                node {
+                                    id
+                                    originalSrc
+                                    transformedSrc
+                                }
                             }
                         }
+                      }
                     }
                   }
                 }
-              }
-            }
-      `
-    };
+          `
+    })};
 
     async componentWillMount() {
-        const response = await ShopifyQuery(this.PRODUCTS_QUERY);
+        const url = window.location.href;
+        let queryFilterParam;
+        if(url.includes('/jewelry')){
+            queryFilterParam = "vendor:" + url.split("/").pop().replace("-"," ");
+        }
+        const query = this.productsQuery(queryFilterParam);
+        console.log(query)
+        const response = await ShopifyQuery(query);
+        console.log(response);
         const cleanedProducts = response.products.edges.map(prod => {
            return {...prod.node, images:prod.node.images.edges.map(img => {
                return img.node
                })};
         });
-        console.log(cleanedProducts)
+        console.log(cleanedProducts);
         this.setState({products:cleanedProducts});
     };
 
