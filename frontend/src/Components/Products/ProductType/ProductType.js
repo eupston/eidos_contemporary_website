@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ProductsQuery from "../../../Utils/ProductsQuery";
+import {Link} from "react-router-dom";
 
 class ProductType extends Component {
     state = {
@@ -19,13 +20,12 @@ class ProductType extends Component {
     };
 
     render() {
-        {console.log(this.state.products[0])}
         const productImgElements = this.state.products.map(prod => {
             return <img src={prod.images[0].originalSrc} alt="" height={400} width={400}/>
         });
         return (
         <div>
-            <h1><a href={this.props.completeProductURL} >{this.props.productType + "s"}</a></h1>
+            <h1><Link to={this.props.completeProductURL} >{this.props.productType + "s"}</Link></h1>
             {productImgElements}
             <hr></hr>
         </div>

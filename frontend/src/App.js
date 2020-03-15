@@ -6,7 +6,7 @@ import Products from './Components/Products/Products';
 import Navbar from './Components/Navbar/Navbar';
 import Login from './Pages/Auth/Login/Login';
 import Signup from "./Pages/Auth/Signup/Signup";
-import Vendors from "./Container/Vendors/Vendors";
+import Vendors from "./Containers/Vendors/Vendors";
 
 class App extends Component {
 

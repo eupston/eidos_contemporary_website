@@ -12,7 +12,7 @@ const productsQuery = (productNumber, queryFilterParam ) => {
                         description
                         vendor
                         productType
-                        images(first:2){
+                        images(first:5){
                             edges{
                                 node {
                                     id
