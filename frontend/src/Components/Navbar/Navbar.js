@@ -2,6 +2,16 @@ import React, {Component} from 'react';
 import classes from './navbar.module.css';
 import eidosLogo from '../../assets/images/EidosLogo.jpg';
 
+
+const vendorsList = ["Gordon Lawrie", "Deborah Alexander"];
+
+const vendorDropDowns = vendorsList.map(ven => {
+    const vendorURL = ven.toLowerCase().replace(" ", "-");
+    const completeURL = "/jewelry/" + vendorURL;
+   return  <a className="dropdown-item" href={completeURL}>{ven}</a>
+});
+
+
 class StickyNavbar extends Component {
     render() {
         return (
@@ -10,15 +20,13 @@ class StickyNavbar extends Component {
                 <img src={eidosLogo}></img>
                 <nav className="navbar navbar-expand-lg navbar-light">
                     <a href="/" className="nav-link" id="navbar_home">Home</a>
-                    {/*<a href="/jewelry" className="nav-link" id="navbar_jewelry">Jewelry</a>*/}
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Jewlery
+                            Jewelery
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a className="dropdown-item" href="/jewelry/liam-fashions">Liam Fashions</a>
-                            <a className="dropdown-item" href="/jewelry/ben-fashions">Ben Fashions</a>
+                            {vendorDropDowns}
                         </div>
                     </li>
                     <a href="/our-story" className="nav-link" id="navbar_our_story">Our Story</a>

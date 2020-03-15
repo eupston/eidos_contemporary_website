@@ -9,7 +9,7 @@ class Products extends Component {
         products: [],
     };
 
-    productsQuery = (queryFilterParam) => {
+    productsQuery = () => {
         return({
             query: `query GetProducts($pages: Int!, $queryFilter: String!){
                   products(first:$pages, query:$queryFilter){
@@ -36,19 +36,19 @@ class Products extends Component {
           `,
             variables: {
                 pages: this.props.productNumber,
-                queryFilter: queryFilterParam
+                queryFilter: this.props.queryFilterParam
             }
     })};
 
     async componentWillMount() {
         const url = window.location.href;
-        let queryFilterParam;
+        let queryFilterParam = "";
         if(url.includes('/jewelry')){
             queryFilterParam = "vendor:" + url.split("/").pop().replace("-"," ");
         }
         const query = this.productsQuery(queryFilterParam);
-        console.log(query)
         const response = await ShopifyQuery(query);
+        console.log(query);
         console.log(response);
         const cleanedProducts = response.products.edges.map(prod => {
            return {...prod.node, images:prod.node.images.edges.map(img => {
