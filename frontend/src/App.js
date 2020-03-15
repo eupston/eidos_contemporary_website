@@ -18,7 +18,7 @@ class App extends Component {
            <Navbar/>
            <Vendors/>
            <Switch>
-               {/*<Route path="/jewelry" render={() => <Products productNumber={10}/>} />*/}
+               {/*<Route path="/jewelry" render={() => <Products productNumber={10} queryFilterParam={""}/>} />*/}
                <Route path="/login" render={() => <Login/>} />
                <Route path="/signup" render={() => <Signup/>} />
                <Route path="/" exact />

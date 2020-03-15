@@ -20,7 +20,13 @@ class Vendor extends Component {
     productTypes = productTypes.map(prod => {
         const productURL = prod.toLowerCase().replace(" ", "-");
         const completeProductURL = this.props.completeVendorURL + "/" + productURL;
-       return <ProductType completeProductURL={completeProductURL} vendorName={this.props.vendorName} productType={prod}/>
+       return <ProductType
+           completeProductURL={completeProductURL}
+           vendorName={this.props.vendorName}
+           productType={prod}
+           productNumber={1}
+           queryFilterParam={"vendor:" + this.props.vendorName + " " + "product_type:" + prod}
+       />
     });
     render() {
         return (
