@@ -7,8 +7,8 @@ const vendorsList = ["Gordon Lawrie", "Deborah Alexander"];
 
 const vendorRoutes = vendorsList.map(ven => {
     const vendorURL = ven.toLowerCase().replace(" ", "-");
-    const completeURL = "/jewelry/" + vendorURL;
-    return <Route path={completeURL} render={() => <Vendor vendorName={ven}/>}/>
+    const completeVendorURL = "/jewelry/" + vendorURL;
+    return <Route path={completeVendorURL} render={() => <Vendor completeVendorURL={completeVendorURL} vendorName={ven}/>}/>
 });
 
 const Vendors = () => {
