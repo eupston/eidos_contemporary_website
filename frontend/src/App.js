@@ -4,8 +4,8 @@ import './App.css';
 
 import Products from './Components/Products/Products';
 import Navbar from './Components/Navbar/Navbar';
-import Login from './Pages/Auth/Login/Login';
-import Signup from "./Pages/Auth/Signup/Signup";
+import Login from './Components/Auth/Login/Login';
+import Signup from "./Components/Auth/Signup/Signup";
 import Vendors from "./Containers/Vendors/Vendors";
 
 class App extends Component {
