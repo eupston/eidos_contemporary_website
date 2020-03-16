@@ -6,7 +6,6 @@ class Product extends Component {
     render() {
         const productURL = this.props.productInfo.productType.toLowerCase().replace(" ", "-");
         const productIdURL = productURL + "/" + this.props.productInfo.id;
-        console.log(productIdURL);
         return (
             <div className={classes.Product}>
                 <img src={this.props.productInfo.images[0].originalSrc} alt="" width={200} height={200}/>

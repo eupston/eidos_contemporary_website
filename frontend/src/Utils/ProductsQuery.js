@@ -3,8 +3,8 @@ import ShopifyQuery from "./ShopifyQuery";
 const productsQuery = (productNumber, queryFilterParam ) => {
     return(
         ShopifyQuery({
-        query: `query GetProducts($pages: Int!, $queryFilter: String!){
-                  products(first:$pages, query:$queryFilter){
+        query: `query GetProducts($products: Int!, $queryFilter: String!){
+                  products(first:$products, query:$queryFilter){
                     edges {
                       node {
                         id
@@ -12,6 +12,12 @@ const productsQuery = (productNumber, queryFilterParam ) => {
                         description
                         vendor
                         productType
+                        priceRange{
+                            maxVariantPrice {
+                                amount
+                                currencyCode
+                            }
+                        }
                         images(first:5){
                             edges{
                                 node {
@@ -27,7 +33,7 @@ const productsQuery = (productNumber, queryFilterParam ) => {
                 }
           `,
         variables: {
-            pages: productNumber,
+            products: productNumber,
             queryFilter: queryFilterParam
         }
 
