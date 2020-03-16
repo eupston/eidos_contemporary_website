@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+
+
 import classes from '../auth.module.css';
 import ShopifyQuery from "../../../Utils/ShopifyQuery";
 import { Redirect } from "react-router-dom";
+import * as authActions from '../../../Store/Actions/index';
 
 // example login that's active
 // email: "user@example.com"
@@ -17,8 +21,8 @@ class Login extends Component {
                 value: '',
             }
         },
-        accessToken: "",
-        isLoggedIn: false,
+        // accessToken: "",
+        // isLoggedIn: false,
         errors:null
     };
 
@@ -64,7 +68,8 @@ class Login extends Component {
         const errors = response.customerAccessTokenCreate.customerUserErrors;
         if(errors.length === 0) {
             const accessToken = response.customerAccessTokenCreate.customerAccessToken.accessToken;
-            this.setState({accessToken: accessToken, isLoggedIn: true});
+            // this.setState({accessToken: accessToken, isLoggedIn: true});
+            this.props.setCustomerAccessToken(accessToken);
             const loginNavbar = document.getElementById("navbar_login");
             loginNavbar.innerText = "Logout";
             console.log("logged in");
@@ -115,4 +120,15 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        accessToken: state.customerAccessToken,
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setCustomerAccessToken: (token) => dispatch(authActions.setCustomerAccessToken(token)),
+    }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

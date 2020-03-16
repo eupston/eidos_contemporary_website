@@ -1,0 +1,1 @@
+export{ setCustomerAccessToken } from './auth';
