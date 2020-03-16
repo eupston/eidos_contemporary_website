@@ -84,3 +84,19 @@
     list-style: none;
     margin:10px;
 }
+
+@media (max-width: 600px) {
+    .ProductInfo {
+        width: 400px;
+        height: 400px;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .ProductInfo {
+        width: 350px;
+        height: 400px;
+    }
+
+}

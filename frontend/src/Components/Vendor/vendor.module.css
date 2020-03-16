@@ -1,4 +1,25 @@
 .Vendor h5 {
     color: gray;
-    margin: 30px;
+    margin: 40px;
+}
+
+.Vendor h5:before,
+.Vendor h5:after {
+    background-color: gray;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 8%;
+}
+
+.Vendor h5:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+.Vendor h5:after {
+    left: 0.5em;
+    margin-right: -50%;
 }

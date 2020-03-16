@@ -38,6 +38,7 @@ class Vendor extends Component {
         return (
             <div className={classes.Vendor}>
             <h5>{this.props.vendorName}</h5>
+                {/*<hr></hr>*/}
                 <Switch>
                     {this.productsRoutes}
                     <Route path={this.props.completeVendorURL} render={() => this.productTypesElements}/>
