@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Route, Switch} from 'react-router-dom';
+import React from 'react';
+import {Route, Switch, useRouteMatch} from 'react-router-dom';
 import ProductType from "../Products/ProductType/ProductType";
 import Products from "../Products/Products";
 import classes from './vendor.module.css';
@@ -7,45 +7,43 @@ import classes from './vendor.module.css';
 const productTypes = ["Ring", "Necklace"];
 
 
-class Vendor extends Component {
+const Vendor = (props) => {
+    let match = useRouteMatch();
 
-    productsRoutes = productTypes.map(prod => {
-        const productURL = prod.toLowerCase().replace(" ", "-");
-        const completeProductURL = this.props.completeVendorURL + "/" + productURL;
-        console.log(completeProductURL);
+    const productsRoutes = productTypes.map(prod => {
+        const productTypeURL = prod.toLowerCase().replace(" ", "-");
+        const completeProductURL = match.url + "/" + productTypeURL;
         return <Route
             path={completeProductURL}
             render={() => <Products
                 productNumber={14}
-                queryFilterParam={"vendor:" + this.props.vendorName + " " + "product_type:" + prod}
+                queryFilterParam={"vendor:" + props.vendorName + " " + "product_type:" + prod}
                 completeProductURL={completeProductURL}
                 />
             }/>
     });
 
-    productTypesElements = productTypes.map(prod => {
+    const productTypesElements = productTypes.map(prod => {
         const productURL = prod.toLowerCase().replace(" ", "-");
-        const completeProductURL = this.props.completeVendorURL + "/" + productURL;
+        const completeProductURL = match.url + "/" + productURL;
        return <ProductType
            completeProductURL={completeProductURL}
-           vendorName={this.props.vendorName}
+           vendorName={props.vendorName}
            productType={prod}
-           productNumber={1}
-           queryFilterParam={"vendor:" + this.props.vendorName + " " + "product_type:" + prod}
+           productNumber={2}
+           queryFilterParam={"vendor:" + props.vendorName + " " + "product_type:" + prod}
        />
     });
-    render() {
-        return (
-            <div className={classes.Vendor}>
-            <h5>{this.props.vendorName}</h5>
-                {/*<hr></hr>*/}
-                <Switch>
-                    {this.productsRoutes}
-                    <Route path={this.props.completeVendorURL} render={() => this.productTypesElements}/>
-                </Switch>
-            </div>
-        );
-    }
-}
+    return (
+        <div className={classes.Vendor}>
+        <h5>{props.vendorName}</h5>
+            <Switch>
+                {productsRoutes}
+                <Route path={match.url}  render={() => productTypesElements}/>
+            </Switch>
+        </div>
+    );
+
+};
 
 export default Vendor;

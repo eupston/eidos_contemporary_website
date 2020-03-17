@@ -21,8 +21,6 @@ class Login extends Component {
                 value: '',
             }
         },
-        // accessToken: "",
-        // isLoggedIn: false,
         errors:null
     };
 
@@ -68,10 +66,7 @@ class Login extends Component {
         const errors = response.customerAccessTokenCreate.customerUserErrors;
         if(errors.length === 0) {
             const accessToken = response.customerAccessTokenCreate.customerAccessToken.accessToken;
-            // this.setState({accessToken: accessToken, isLoggedIn: true});
             this.props.setCustomerAccessToken(accessToken);
-            const loginNavbar = document.getElementById("navbar_login");
-            loginNavbar.innerText = "Logout";
             console.log("logged in");
         }
         else{

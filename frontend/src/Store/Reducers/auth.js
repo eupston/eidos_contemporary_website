@@ -14,11 +14,9 @@ const reducer = (state= initialState, action) => {
                 customerAccessToken: action.customerAccessToken,
                 isLoggedIn: true
             };
-
         default:
             return state;
     }
-
 };
 
 export default reducer;

@@ -16,9 +16,8 @@ class App extends Component {
    return (
        <div className="App">
            <Navbar/>
-           <Vendors/>
            <Switch>
-               {/*<Route path="/jewelry" render={() => <Products productNumber={10} queryFilterParam={""}/>} />*/}
+               <Route path="/jewelry" render={() => <Vendors/>} />
                <Route path="/login" render={() => <Login/>} />
                <Route path="/signup" render={() => <Signup/>} />
                <Route path="/" exact />
