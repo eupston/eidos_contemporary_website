@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom';
 import eidosLogo from '../../assets/images/EidosLogo.jpg'
 import './footer.css';
 
@@ -26,17 +27,17 @@ export class Footer extends Component {
                 <div className="col-6 col-md">
                     <h5>Resources</h5>
                     <ul className="list-unstyled text-small">
-                    <li><a className="text-muted" href="#">Returns and Exchanges</a></li>
-                    <li><a className="text-muted" href="#">Shipping Policy</a></li>
-                    <li><a className="text-muted" href="#">Ethical Trading</a></li>
-                    <li><a className="text-muted" href="#">Warranty</a></li>
+                    <li><Link className="text-muted" to="#">Returns and Exchanges</Link></li>
+                    <li><Link className="text-muted" to="#">Shipping Policy</Link></li>
+                    <li><Link className="text-muted" to="#">Ethical Trading</Link></li>
+                    <li><Link className="text-muted" to="#">Warranty</Link></li>
                     </ul>
                 </div>
                 <div className="col-6 col-md">
                     <h5>About</h5>
                     <ul className="list-unstyled text-small">
-                    <li><a className="text-muted" href="#">Our Story</a></li>
-                    <li><a className="text-muted" href="#">Contact Us</a></li>
+                    <li><Link className="text-muted" to="/our-story">Our Story</Link></li>
+                    <li><Link className="text-muted" to="/contact">Contact Us</Link></li>
 
                     </ul>
                 </div>
