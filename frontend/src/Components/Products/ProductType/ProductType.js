@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ProductsQuery from "../../../Utils/ProductsQuery";
 import {Link} from "react-router-dom";
+import classes from './producttype.module.css';
 
 class ProductType extends Component {
     state = {
@@ -21,14 +22,18 @@ class ProductType extends Component {
 
     render() {
         const productImgElements = this.state.products.map(prod => {
-            return <img src={prod.images[0].originalSrc} alt="" height={400} width={400}/>
+            return <img src={prod.images[0].originalSrc} alt="" />
         });
         return (
-        <div>
-            <h1><Link to={this.props.completeProductURL} >{this.props.productType}</Link></h1>
-            {productImgElements}
-            <hr></hr>
-        </div>
+            <Link className={classes.Link} to={this.props.completeProductURL}>
+                <div className={classes.ProductType}>
+                    <div className={classes.ProductTypeItems}>
+                        {productImgElements}
+                        <h1>{this.props.productType}</h1>
+
+                    </div>
+                </div>
+            </Link>
         );
     }
 }

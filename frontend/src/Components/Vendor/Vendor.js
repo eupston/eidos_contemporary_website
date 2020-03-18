@@ -30,7 +30,7 @@ const Vendor = (props) => {
            completeProductURL={completeProductURL}
            vendorName={props.vendorName}
            productType={prod}
-           productNumber={2}
+           productNumber={4}
            queryFilterParam={"vendor:" + props.vendorName + " " + "product_type:" + prod}
        />
     });
