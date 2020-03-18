@@ -8,9 +8,10 @@ class Product extends Component {
         const productIdURL = productURL + "/" + this.props.productInfo.id;
         return (
             <div className={classes.Product}>
-                <img src={this.props.productInfo.images[0].originalSrc} alt="" width={200} height={200}/>
-                <Link to={productIdURL}><h3>{this.props.productInfo.title}</h3></Link>
-                <p>{this.props.productInfo.description}</p>
+                <Link  to={productIdURL}>
+                    <img src={this.props.productInfo.images[0].originalSrc} alt="Not Available" />
+                </Link>
+                <button type="button" className="btn btn-dark">Quick View</button>
             </div>
         );
     }
