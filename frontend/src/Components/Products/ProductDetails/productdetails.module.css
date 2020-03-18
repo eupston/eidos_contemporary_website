@@ -1,0 +1,102 @@
+.ProductDetails{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    color: gray;
+    justify-content: space-around;
+    position: relative;
+}
+
+
+.ProductDetails h4{
+    margin: 20px;
+    color:  #6a94ac;
+}
+
+.ProductInfo hr {
+    width: 80%;
+}
+
+.ProductInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #6a94ac;
+    border-radius: 10px;
+    width: 500px;
+    height: 450px;
+    margin: 40px;
+}
+
+.ProductInfo hr {
+    width: 80%;
+}
+
+.ProductInfo button {
+    color: #6a94ac;
+    border: 1px solid #6a94ac;
+    width: 80%;
+    margin: 20px;
+}
+.ProductDetails button:hover{
+    background-color: #6a94ac;
+    border: 1px solid #6a94ac;
+}
+.ProductDetails button:active{
+    background-color: #6a94ac;
+    border: 1px solid #6a94ac;
+}
+
+.SocialMedia a {
+    margin: 20px 20px 20px 20px;
+    color: #6a94ac;
+    border: none;
+    background-color: white;
+    font-size: 20px;
+}
+
+.SocialMedia a:hover{
+    opacity: 0.7;
+    background-color: white;
+}
+
+.SocialMedia p {
+    margin: 10px 0px 0px 0px;
+}
+
+.Carousel {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:50px;
+}
+.CarouselThumbnails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.CarouselThumbnails li {
+    list-style: none;
+    margin:10px;
+}
+
+@media (max-width: 600px) {
+    .ProductInfo {
+        width: 400px;
+        height: 400px;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .ProductInfo {
+        width: 350px;
+        height: 400px;
+    }
+
+}

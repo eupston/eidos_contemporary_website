@@ -1,47 +1,25 @@
 import React, {Component} from 'react';
-import ShopifyQuery from '../../Utils/ShopifyQuery';
+import ProductsQuery from '../../Utils/ProductsQuery';
 import Product from '../Products/Product/Product';
 import classes from './products.module.css';
+import {Route, Switch} from "react-router-dom";
+import ProductDetails from "./ProductDetails/ProductDetails";
 
 class Products extends Component {
 
     state = {
-        products: []
-    };
-
-    PRODUCTS_QUERY = {
-        query: `
-            {
-              products(first:${this.props.productNumber}){
-                edges {
-                  node {
-                    id
-                    title
-                    description
-                    images(first:2){
-                        edges{
-                            node {
-                                id
-                                originalSrc
-                                transformedSrc
-                            }
-                        }
-                    }
-                  }
-                }
-              }
-            }
-      `
+        products: [],
     };
 
     async componentWillMount() {
-        const response = await ShopifyQuery(this.PRODUCTS_QUERY);
+        const response = await ProductsQuery(this.props.productNumber, this.props.queryFilterParam);
+        console.log(response);
         const cleanedProducts = response.products.edges.map(prod => {
            return {...prod.node, images:prod.node.images.edges.map(img => {
                return img.node
                })};
         });
-        console.log(cleanedProducts)
+        console.log(cleanedProducts);
         this.setState({products:cleanedProducts});
     };
 
@@ -49,10 +27,22 @@ class Products extends Component {
         const productElements = this.state.products.map(prod => {
             return <Product key={prod.id} productInfo={prod}/>
         });
+        const productDetails = this.state.products.map(prod => {
+            return <Route
+                path={this.props.completeProductURL + "/" + prod.id}
+                render={() => <ProductDetails
+                    key={prod.id}
+                    productInfo={prod}
+                    />
+                }/>
+        });
 
         return (
             <div className={classes.Products}>
-                {productElements}
+                <Switch>
+                {productDetails}
+                <Route path={this.props.completeProductURL} render={() => productElements}/>
+                </Switch>
             </div>
         );
     }
