@@ -8,6 +8,7 @@ class Product extends Component {
         const productIdURL = productURL + "/" + this.props.productInfo.id;
         return (
             <div className={classes.Product}>
+                <h4>{this.props.productInfo.title}</h4>
                 <Link  to={productIdURL}>
                     <img src={this.props.productInfo.images[0].originalSrc} alt="Not Available" />
                 </Link>

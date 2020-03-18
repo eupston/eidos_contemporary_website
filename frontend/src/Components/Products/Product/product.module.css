@@ -4,9 +4,19 @@
     text-align: center;
     margin: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
+}
+
+.Product h4 {
+    color: gray;
+    position: absolute;
+    top: -10%;
+    transition: all 0.5s ease-in-out;
+    z-index: 10;
+    opacity: 0
 }
 
 .Product img {
@@ -23,6 +33,12 @@
     bottom: 0%;
     opacity: 1;
 }
+
+.Product:hover h4 {
+    top: 5%;
+    opacity: 1;
+}
+
 
 .Product button {
     color: gray;
