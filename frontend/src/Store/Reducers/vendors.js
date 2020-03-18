@@ -3,10 +3,10 @@ import * as actionTypes from '../Actions/actionTypes'
 const initialState = {
     vendors: {
         "Gordon Lawrie": {
-            "Product Types": ["Ring", "Necklace"]
+            "Product Types": ["Rings", "Necklaces"]
             },
         "Deborah Alexander" : {
-            "Product Types": ["Ring", "Necklace"]
+            "Product Types": ["Rings", "Necklaces"]
             }
     }
 };

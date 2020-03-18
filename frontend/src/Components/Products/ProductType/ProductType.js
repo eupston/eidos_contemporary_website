@@ -25,7 +25,7 @@ class ProductType extends Component {
         });
         return (
         <div>
-            <h1><Link to={this.props.completeProductURL} >{this.props.productType + "s"}</Link></h1>
+            <h1><Link to={this.props.completeProductURL} >{this.props.productType}</Link></h1>
             {productImgElements}
             <hr></hr>
         </div>
