@@ -29,15 +29,15 @@
 
 }
 
-.ProductType {
-    transition: all .3s ease-in-out;
+.ProductType h1 {
+    transition: all 0.8s ease 0s;
 }
-.ProductType:hover {
+
+
+.ProductType:hover h1 {
     transform: scale(1.05);
 }
-.ProductType:hover h1 {
-    color: #6a94ac;
-}
+
 
 
 .ProductTypeItems {
