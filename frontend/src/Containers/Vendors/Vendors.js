@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, useRouteMatch} from 'react-router-dom';
-import Vendor from "../../Components/Vendor/Vendor";
+import Vendor from "./Vendor/Vendor";
 import {connect} from 'react-redux';
 
 const Vendors = (props) => {

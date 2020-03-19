@@ -1,0 +1,24 @@
+.ProductModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ProductModal h5 {
+    text-align: center;
+    width:100%;
+}
+
+.FullDetails p {
+    color:gray;
+    text-decoration: none;
+}
+
+.CloseButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: end;
+    margin: 10px;
+}
+

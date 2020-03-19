@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch, useRouteMatch} from 'react-router-dom';
-import ProductType from "../Products/ProductType/ProductType";
-import Products from "../Products/Products";
+import ProductType from "../../../Components/Products/ProductType/ProductType";
+import Products from "../../../Components/Products/Products";
 import classes from './vendor.module.css';
 import {connect} from 'react-redux';
 
