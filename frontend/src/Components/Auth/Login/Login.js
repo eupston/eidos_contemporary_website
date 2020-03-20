@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-
 import classes from '../auth.module.css';
 import ShopifyQuery from "../../../Utils/ShopifyQuery";
 import { Redirect } from "react-router-dom";
@@ -21,7 +20,7 @@ class Login extends Component {
                 value: '',
             }
         },
-        errors:null
+        errors:null,
     };
 
     inputChangeHandler = (event) => {
@@ -108,7 +107,7 @@ class Login extends Component {
                         />
                         <button type="submit" className="btn btn-primary" >Login</button>
                     </form>
-                    {this.state.isLoggedIn ? <Redirect to={"/"}/> : null}
+                    {this.props.isLoggedIn ? <Redirect to="/"/> : null}
                 </div>
             </React.Fragment>
         );
@@ -117,7 +116,8 @@ class Login extends Component {
 
 const mapStateToProps = state => {
     return {
-        accessToken: state.customerAccessToken,
+        accessToken: state.auth.customerAccessToken,
+        isLoggedIn: state.auth.isLoggedIn,
     }
 };
 
