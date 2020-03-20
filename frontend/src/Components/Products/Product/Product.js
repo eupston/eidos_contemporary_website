@@ -5,7 +5,7 @@ import ProductModal from './ProductModal/ProductModal';
 
 class Product extends Component {
     state = {
-        showModal: true,
+        showModal: false,
     };
 
     handleModalShow = () => {
@@ -13,18 +13,13 @@ class Product extends Component {
     };
 
     handleModalHide = () => {
-        console.log("handleModalHide");
-        const closebutton = document.getElementById(this.props.productInfo.title);
-        const productModalId = "#" + this.props.productInfo.title;
-
-
+        this.setState({showModal:false});
 
     };
 
     render() {
         const productURL = this.props.productInfo.productType.toLowerCase().replace(" ", "-");
         const productIdURL = productURL + "/" + this.props.productInfo.id;
-        const productModalId = "#" + this.props.productInfo.title;
 
         return (
             <div>
@@ -34,12 +29,16 @@ class Product extends Component {
                         <img src={this.props.productInfo.images[0].originalSrc} alt="Not Available" />
                     </Link>
                     <button type="button"
-                            data-toggle="modal"
-                            data-target={productModalId}
                             onClick={this.handleModalShow}
                             className="btn btn-dark">Quick View</button>
                 </div>
-                {this.state.showModal ? <ProductModal handleModalHide={this.handleModalHide} productIdURL={productIdURL} productInfo={this.props.productInfo}/> : null}
+                {this.state.showModal ?
+                    <ProductModal
+                        show={this.state.showModal}
+                        onHide={this.handleModalHide}
+                        productIdURL={productIdURL}
+                        productInfo={this.props.productInfo}/>
+                        : null}
             </div>
         );
     }
