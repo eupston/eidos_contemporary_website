@@ -1,8 +1,8 @@
 import * as actionTypes from '../Actions/actionTypes'
 
 const initialState = {
-    customerAccessToken: "",
-    isLoggedIn: false
+        customerAccessToken: "",
+        isLoggedIn: false
 };
 
 const reducer = (state= initialState, action) => {
@@ -15,7 +15,7 @@ const reducer = (state= initialState, action) => {
                 isLoggedIn: true
             };
         default:
-            return state;
+            return {...state};
     }
 };
 

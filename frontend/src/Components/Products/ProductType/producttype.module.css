@@ -1,0 +1,58 @@
+.ProductType {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+
+.ProductType h1 {
+    color: gray;
+    /*text-shadow: 0 1px 4px gray;*/
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    top:40%;
+    left: 45%;
+    z-index: 2;
+
+}
+
+.ProductType img {
+    height: 30%;
+    width: 30%;
+    z-index: 1;
+}
+
+.ProductType:hover img{
+    opacity: 0.5;
+}
+
+.ProductType:hover img{
+    transition: all 0.5s ease-in-out;
+
+}
+
+.ProductType h1 {
+    transition: all 0.8s ease 0s;
+}
+
+
+.ProductType:hover h1 {
+    transform: scale(1.05);
+}
+
+
+
+.ProductTypeItems {
+    border-radius: 10px;
+    width: 75%;
+    height: 100%;
+    box-shadow:  0 5px 10px gray;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+}

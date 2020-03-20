@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import classes from './productdetails.module.css';
+import Carousel from "../../../UI/Carousel/Carousel";
 
 class ProductDetails extends Component {
 
@@ -21,12 +22,8 @@ class ProductDetails extends Component {
     }
 
     render() {
-        const images = this.props.productInfo.images.map(img => {
-            return <img src={img.originalSrc} alt="" height={200} width={200}/>
-        });
-
         const carouselItems = this.props.productInfo.images.map((img, index) => {
-            if (index == 0) {
+            if (index === 0) {
                 return (
                     <div className="carousel-item active">
                         <img width="400" height="400"  src={img.originalSrc} alt={index}/>
@@ -42,7 +39,7 @@ class ProductDetails extends Component {
         });
 
         const carouselThumbnails = this.props.productInfo.images.map((img, index) => {
-            if (index == 0) {
+            if (index === 0) {
                 return (
                     <li data-target="#carousel-thumb" data-slide-to={index} className="active">
                         <img src={img.originalSrc} width="70"/>
@@ -51,7 +48,7 @@ class ProductDetails extends Component {
             } else {
                 return (
                     <li data-target="#carousel-thumb" data-slide-to={index}>
-                        <img src={img.originalSrc} width="70"/>
+                        <img src={img.originalSrc} width="70" alt={index}/>
                     </li>
                 )
             }
@@ -65,24 +62,7 @@ class ProductDetails extends Component {
 
         return (
             <div className={classes.ProductDetails}>
-                <div className={classes.Carousel}>
-                    <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            {carouselItems}
-                        </div>
-                        <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel-thumb" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                        <div className={classes.CarouselThumbnails}>
-                            {carouselThumbnails}
-                        </div>
-                    </div>
-                </div>
+                <Carousel carouselThumbnails={carouselThumbnails} carouselItems={carouselItems}/>
                 <div className={classes.ProductInfo}>
                     <h4>{this.props.productInfo.title}</h4>
                     <h6>{this.state.price}</h6>

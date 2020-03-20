@@ -1,14 +1,14 @@
 import React from 'react';
 import {Route, Switch, useRouteMatch} from 'react-router-dom';
-import ProductType from "../Products/ProductType/ProductType";
-import Products from "../Products/Products";
+import ProductType from "../../../Components/Products/ProductType/ProductType";
+import Products from "../../../Components/Products/Products";
 import classes from './vendor.module.css';
-
-const productTypes = ["Ring", "Necklace"];
-
+import {connect} from 'react-redux';
 
 const Vendor = (props) => {
     let match = useRouteMatch();
+
+    const productTypes = props.jewelers.vendors[props.vendorName]["Product Types"];
 
     const productsRoutes = productTypes.map(prod => {
         const productTypeURL = prod.toLowerCase().replace(" ", "-");
@@ -30,7 +30,7 @@ const Vendor = (props) => {
            completeProductURL={completeProductURL}
            vendorName={props.vendorName}
            productType={prod}
-           productNumber={2}
+           productNumber={3}
            queryFilterParam={"vendor:" + props.vendorName + " " + "product_type:" + prod}
        />
     });
@@ -46,4 +46,10 @@ const Vendor = (props) => {
 
 };
 
-export default Vendor;
+
+const mapStateToProps = state => {
+    return {
+        jewelers: state.vendors,
+    }
+};
+export default connect(mapStateToProps)(Vendor);

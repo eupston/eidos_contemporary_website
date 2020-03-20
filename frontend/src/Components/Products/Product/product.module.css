@@ -1,9 +1,64 @@
 .Product{
-    width: 380px;
-    height: 360px;
+    width: 400px;
+    height: 400px;
     text-align: center;
-    box-shadow:  0 5px 15px grey;
-    margin: 20px;
-    padding: 20px;
-    display: block;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.Product h4 {
+    color: gray;
+    position: absolute;
+    top: -10%;
+    transition: all 0.5s ease-in-out;
+    z-index: 10;
+    opacity: 0
+}
+
+.Product img {
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.Product:hover img{
+    opacity: 0.5;
+}
+
+.Product:hover button {
+    bottom: 0%;
+    opacity: 1;
+}
+
+.Product:hover h4 {
+    top: 5%;
+    opacity: 1;
+}
+
+
+.Product button {
+    color: gray;
+    border: 1px solid gray;
+    background-color: white;
+    width: 75%;
+    position: absolute;
+    bottom: -10%;
+    transition: all 0.5s ease-in-out;
+    z-index: 10;
+    opacity: 0;
+}
+
+
+.Product button:hover{
+    background-color: gray;
+    color: white;
+    border: 1px solid gray;
+}
+.Product button:active{
+    background-color: gray;
+    border: 1px solid gray;
 }

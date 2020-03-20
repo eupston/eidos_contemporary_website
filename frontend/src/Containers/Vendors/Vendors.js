@@ -1,12 +1,12 @@
 import React from 'react';
 import {Route, useRouteMatch} from 'react-router-dom';
-import Vendor from "../../Components/Vendor/Vendor";
+import Vendor from "./Vendor/Vendor";
+import {connect} from 'react-redux';
 
-const Vendors = () => {
+const Vendors = (props) => {
     let match = useRouteMatch();
-    const vendorsList = ["Gordon Lawrie", "Deborah Alexander"];
 
-    const vendorRoutes = vendorsList.map(ven => {
+    const vendorRoutes = Object.keys(props.jewelers.vendors).map(ven => {
         const vendorURL = ven.toLowerCase().replace(" ", "-");
         const completeVendorURL = "/jewelry/" + vendorURL;
         return <Route path={`${match.url}/${vendorURL}`} render={() => <Vendor completeVendorURL={completeVendorURL} vendorName={ven}/>}/>
@@ -19,4 +19,10 @@ const Vendors = () => {
     );
 };
 
-export default Vendors;
+const mapStateToProps = state => {
+    return {
+        jewelers: state.vendors,
+    }
+};
+
+export default connect(mapStateToProps)(Vendors);

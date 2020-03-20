@@ -1,0 +1,61 @@
+.ProductModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ProductModalBody {
+    align-self: center;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+.ProductModal h4{
+     text-align: center;
+     color: gray;
+ }
+
+.ProductModal h6{
+    text-align: center;
+    color: gray;
+    margin-top: 20px;
+}
+
+.ProductModal h4:before,
+.ProductModal h4:after {
+    background-color: gray;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 8%;
+}
+
+.ProductModal h4:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+.ProductModal h4:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+
+.ProductModal p{
+    color:gray;
+    text-align: center;
+    font-size: 12px;
+    margin: 10px;
+
+}
+
+.ProductModal a:hover{
+    text-decoration: none;
+    color: black;
+
+}
