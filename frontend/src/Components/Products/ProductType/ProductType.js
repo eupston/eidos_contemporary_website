@@ -5,12 +5,11 @@ import classes from './producttype.module.css';
 
 class ProductType extends Component {
     state = {
-        products: [],
+        products: null,
     };
 
     async componentWillMount() {
         const response = await ProductsQuery(this.props.productNumber, this.props.queryFilterParam);
-        console.log(response);
         const cleanedProducts = response.products.edges.map(prod => {
             return {...prod.node, images:prod.node.images.edges.map(img => {
                     return img.node
@@ -21,6 +20,10 @@ class ProductType extends Component {
     };
 
     render() {
+        if(!this.state.products){
+            return null;
+        }
+
         const productImgElements = this.state.products.map(prod => {
             return <img src={prod.images[0].originalSrc} alt="" />
         });
