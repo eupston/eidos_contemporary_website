@@ -8,6 +8,7 @@ import Login from "./Components/Auth/Login/Login";
 import Signup from "./Components/Auth/Signup/Signup";
 import Vendors from "./Containers/Vendors/Vendors";
 import Footer from "./Components/Footer/Footer";
+import Contact from "./Components/Contact/Contact";
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path='/jewelry' render={() => <Vendors />} />
           <Route path='/login' render={() => <Login />} />
           <Route path='/signup' render={() => <Signup />} />
+          <Route path='/contact' render={() => <Contact/>}/>
           <Route path='/' exact render={() => <Home/>} />
         </Switch>
         <Footer />

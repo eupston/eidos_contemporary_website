@@ -5,6 +5,7 @@ import classes from '../auth.module.css';
 import ShopifyQuery from "../../../Utils/ShopifyQuery";
 import { Redirect } from "react-router-dom";
 import * as authActions from '../../../Store/Actions/index';
+import PageHeader from "../../../UI/PageHeader/PageHeader";
 
 // example login that's active
 // email: "user@example.com"
@@ -77,6 +78,7 @@ class Login extends Component {
     render() {
         return (
             <React.Fragment>
+                <PageHeader title={"Login"}/>
                 <div className={classes.Error}>
                     {this.state.errors}
                 </div>

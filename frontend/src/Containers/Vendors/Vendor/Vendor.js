@@ -4,6 +4,7 @@ import ProductType from "../../../Components/Products/ProductType/ProductType";
 import Products from "../../../Components/Products/Products";
 import classes from './vendor.module.css';
 import {connect} from 'react-redux';
+import PageHeader from "../../../UI/PageHeader/PageHeader";
 
 const Vendor = (props) => {
     let match = useRouteMatch();
@@ -36,7 +37,7 @@ const Vendor = (props) => {
     });
     return (
         <div className={classes.Vendor}>
-        <h5>{props.vendorName}</h5>
+            <PageHeader title={props.vendorName}/>
             <Switch>
                 {productsRoutes}
                 <Route path={match.url}  render={() => productTypesElements}/>

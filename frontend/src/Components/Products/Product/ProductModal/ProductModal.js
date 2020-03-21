@@ -25,39 +25,6 @@ class ProductModal extends Component {
 
     render() {
 
-        const carouselItems = this.props.productInfo.images.map((img, index) => {
-            if (index === 0) {
-                return (
-                    <div className="carousel-item active">
-                        <img width="300" height="300"  src={img.originalSrc} alt={index}/>
-                    </div>
-                )
-            } else {
-                return (
-                    <div className="carousel-item ">
-                        <img width="300" height="300" src={img.originalSrc} alt={index}/>
-                    </div>
-                )
-            }
-        });
-
-        const carouselThumbnails = this.props.productInfo.images.map((img, index) => {
-            if (index === 0) {
-                return (
-                    <li data-target="#carousel-thumb" data-slide-to={index} className="active">
-                        <img src={img.originalSrc} width="70" alt={index}/>
-                    </li>
-                )
-            } else {
-                return (
-                    <li data-target="#carousel-thumb" data-slide-to={index}>
-                        <img src={img.originalSrc} width="70"  alt={index}/>
-                    </li>
-                )
-            }
-        });
-
-
         return (
             <Modal
                 {...this.props}
@@ -73,7 +40,11 @@ class ProductModal extends Component {
                     <h4>{this.props.productInfo.title}</h4>
                     <h6>{this.state.price}</h6>
 
-                    <Carousel carouselThumbnails={carouselThumbnails} carouselItems={carouselItems}/>
+                    <Carousel
+                        images={this.props.productInfo.images}
+                        carousel_item_width={"300"}
+                        carousel_item_height={"300"}
+                    />
                     <Link to={this.props.productIdURL} onClick={this.props.handleModalHide} ><p >See Product Details</p></Link>
 
                 </Modal.Body>
