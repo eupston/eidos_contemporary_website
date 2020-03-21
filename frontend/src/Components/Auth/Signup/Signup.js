@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ShopifyQuery from "../../../Utils/ShopifyQuery";
 import { Redirect } from "react-router-dom";
 import classes from '../auth.module.css';
+import PageHeader from "../../../UI/PageHeader/PageHeader";
 
 class Signup extends Component {
     state = {
@@ -90,6 +91,7 @@ class Signup extends Component {
     render() {
         return (
             <React.Fragment>
+                <PageHeader title={"Signup"}/>
                 <div className={classes.Error}>
                     {this.state.errors}
                 </div>

@@ -1,0 +1,74 @@
+.Contact {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    flex-wrap: wrap-reverse;
+    color: gray;
+}
+
+.Address {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 30px;
+
+}
+
+.Address span {
+    margin: 30px;
+}
+.Address img {
+    margin: 20px;
+}
+
+.ContactForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    font-size: 16px;
+    width: 50%;
+}
+
+.ContactForm form {
+    width: 100%;
+}
+
+.ContactForm textarea {
+    height: 150px;
+}
+
+.ContactForm button {
+    margin-top: 20px;
+    background-color: #6a94ac;
+    border-color: #6a94ac;
+    width: 40%;
+    margin-bottom: 20px;
+
+}
+
+.ContactForm button:hover{
+    background-color: gray;
+    border-color: #6a94ac;
+}
+
+.ContactForm button:focus,
+.ContactForm button:active {
+    outline: none;
+    box-shadow: none;
+    border-color: #6a94ac;
+}
+
+
+.ContactForm label {
+    margin-top: 20px;
+}
+
+.Error {
+    color: red;
+}
+
+.Success {
+    color: green;
+}

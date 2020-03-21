@@ -1,0 +1,25 @@
+.PageHeader h5 {
+    color: gray;
+    margin: 40px;
+}
+
+.PageHeader h5:before,
+.PageHeader h5:after {
+    background-color: gray;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 8%;
+}
+
+.PageHeader h5:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+.PageHeader h5:after {
+    left: 0.5em;
+    margin-right: -50%;
+}

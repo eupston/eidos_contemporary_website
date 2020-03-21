@@ -22,38 +22,6 @@ class ProductDetails extends Component {
     }
 
     render() {
-        const carouselItems = this.props.productInfo.images.map((img, index) => {
-            if (index === 0) {
-                return (
-                    <div className="carousel-item active">
-                        <img width="400" height="400"  src={img.originalSrc} alt={index}/>
-                    </div>
-                )
-            } else {
-                return (
-                    <div className="carousel-item ">
-                        <img width="400" height="400" src={img.originalSrc} alt={index}/>
-                    </div>
-                )
-            }
-        });
-
-        const carouselThumbnails = this.props.productInfo.images.map((img, index) => {
-            if (index === 0) {
-                return (
-                    <li data-target="#carousel-thumb" data-slide-to={index} className="active">
-                        <img src={img.originalSrc} width="70"/>
-                    </li>
-                )
-            } else {
-                return (
-                    <li data-target="#carousel-thumb" data-slide-to={index}>
-                        <img src={img.originalSrc} width="70" alt={index}/>
-                    </li>
-                )
-            }
-        });
-
         const currencyCode = this.props.productInfo.priceRange.maxVariantPrice.currencyCode;
         // const price = new Intl.NumberFormat(locale, {
         //                     style: 'currency',
@@ -62,7 +30,11 @@ class ProductDetails extends Component {
 
         return (
             <div className={classes.ProductDetails}>
-                <Carousel carouselThumbnails={carouselThumbnails} carouselItems={carouselItems}/>
+                <Carousel
+                    images={this.props.productInfo.images}
+                    carousel_item_width={"400"}
+                    carousel_item_height={"400"}
+                />
                 <div className={classes.ProductInfo}>
                     <h4>{this.props.productInfo.title}</h4>
                     <h6>{this.state.price}</h6>

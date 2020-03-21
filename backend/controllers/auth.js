@@ -3,9 +3,35 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const asyncHandler = require('../middleware/async');
 const ErrorResponse = require('../utils/errorResponse');
+const nodemailer = require('nodemailer');
+const sendGridTransport = require('nodemailer-sendgrid-transport');
+
+
+const transporter = nodemailer.createTransport(sendGridTransport({
+    auth: {
+        api_key: process.env.SEND_GRID_API_KEY
+    }
+}));
+
+// @desc    Emails the Site Admin
+// @route   POST /api/v1/auth/email
+// @access  PUBLIC
+exports.postEmail = asyncHandler(async (req, res, next) => {
+    const result = await transporter.sendMail({
+                    to: "eupston130@gmail.com",
+                    from: 'site-admin@eidoscontemporary.com',
+                    subject: req.body.subject,
+                    html: req.body.content
+                });
+    return res.status(200)
+        .json({
+            data: result,
+        });
+});
+
 
 // @desc    Logs user in
-// @route   GET /api/v1/auth/login
+// @route   POST /api/v1/auth/login
 // @access  PUBLIC
 exports.postLogin = asyncHandler(async (req, res, next) => {
     const email = req.body.email;
@@ -45,7 +71,7 @@ exports.postLogin = asyncHandler(async (req, res, next) => {
 });
 
 // @desc    signs user in
-// @route   GET /api/v1/auth/signup
+// @route   POST /api/v1/auth/signup
 // @access  PUBLIC
 exports.postSignup = asyncHandler(async (req, res, next) => {
     const password = req.body.password;
