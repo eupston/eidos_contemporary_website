@@ -4,7 +4,6 @@
     align-items: start;
     flex-wrap: wrap-reverse;
     color: gray;
-
 }
 
 .Address {
@@ -67,4 +66,8 @@
 
 .Error {
     color: red;
+}
+
+.Success {
+    color: green;
 }
