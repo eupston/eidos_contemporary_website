@@ -10,7 +10,7 @@
 }
 
 .MainBar hr{
-    width:100%;
+    /*width:80%;*/
     color: #6a94ac;
 }
 
@@ -39,7 +39,7 @@
 
 .Navbar span {
     border-top: 1px solid transparent;
-    margin-top: 13px;
+    margin-top: 16px;
 }
 
 .Navbar a:hover,

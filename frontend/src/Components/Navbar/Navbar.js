@@ -45,45 +45,43 @@ class StickyNavbar extends Component {
         return <Link className="dropdown-item " to={completeURL}>{ven}</Link>
     });
     render() {
-        console.log(this.state)
         return (
                  <div className={this.state.navBarClasses.join(' ') } id="mainnavbar">
-                    {!this.state.isScrolling ? <img src={eidosLogo} ></img> : null}
-                    <nav className={classes.Navbar}  >
-                        <div className={classes.NavbarLeft}>
-                            {this.state.isScrolling ? <img src={eidosLogo} width={200} ></img> : null}
-                        </div>
-                        <div className={classes.NavbarMiddle}>
-                            <Link to="/">Home</Link>
-                            <span className="nav-item dropdown" onMouseOver={this.handleOnHover} >
-                                <Link className="dropdown-toggle"
-                                      href="/"
-                                      id="navbarDropdownMenuLink"
-                                      to="/"
-                                      data-toggle="dropdown"
-                                      aria-haspopup="true"
-                                      aria-expanded="false">Jewelery</Link>
+                        {!this.state.isScrolling ? <img onMouseOver={this.handleOffHover}  src={eidosLogo} ></img> : null}
+                        <nav className={classes.Navbar}  >
+                            <div className={classes.NavbarLeft}>
+                                {this.state.isScrolling ? <img src={eidosLogo} width={200} ></img> : null}
+                            </div>
+                            <div className={classes.NavbarMiddle}>
+                                <Link onMouseOver={this.handleOffHover}   to="/">Home</Link>
+                                <span className="nav-item dropdown" onMouseOver={this.handleOnHover} >
+                                    <Link className="dropdown-toggle"
+                                          href="/"
+                                          id="navbarDropdownMenuLink"
+                                          to="/"
+                                          data-toggle="dropdown"
+                                          aria-haspopup="true"
+                                          aria-expanded="false">Jewelery</Link>
 
-                                <span className={this.state.isHovered ? "dropdown-menu show" : "dropdown-menu"}
-                                      aria-labelledby="navbarDropdownMenuLink"
-                                      onMouseOver={this.handleOnHover}
-                                      onMouseLeave={this.handleOffHover}
-                                >
-                                    {this.vendorDropDowns}
+                                    <span className={this.state.isHovered ? "dropdown-menu show" : "dropdown-menu"}
+                                          aria-labelledby="navbarDropdownMenuLink"
+                                          onMouseOver={this.handleOnHover}
+                                          onMouseLeave={this.handleOffHover}
+                                    >
+                                        {this.vendorDropDowns}
+                                    </span>
                                 </span>
-                            </span>
-                            <Link to="/our-story">Our Story</Link>
-                            <Link to="/custom">Custom</Link>
-                            <Link to="/contact">Contact</Link>
-                        </div>
-                        <div className={classes.NavbarRight}>
-                            <Link to="/login">Login</Link>
-                            <Link to="/signup">Signup</Link>
-                        </div>
-                    </nav>
-                  <hr ></hr>
+                                <Link onMouseOver={this.handleOffHover} to="/our-story">Our Story</Link>
+                                <Link  to="/custom">Custom</Link>
+                                <Link  to="/contact">Contact</Link>
+                            </div>
+                            <div className={classes.NavbarRight}>
+                                <Link to="/login">Login</Link>
+                                <Link to="/signup">Signup</Link>
+                            </div>
+                        </nav>
+                     {!this.state.isScrolling ? <hr style={{width:"80%"}}></hr> :  <hr style={{width:"100%"}}></hr>}
                  </div>
-
         );
     }
 }
