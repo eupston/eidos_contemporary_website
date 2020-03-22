@@ -9,18 +9,25 @@ class StickyNavbar extends Component {
     state = {
         isHovered : false,
         isScrolling: false,
-        navBarClasses: [classes.MainBar]
+        navBarClasses: [classes.MainBar],
     };
 
     handleStickyNavbar = () => {
         const page_position = window.pageYOffset;
-
-        if ( page_position >= 50) {
-            this.setState({navBarClasses:[classes.MainBar, classes.MainBarSticky], isScrolling:true})
+        let nav = false;
+        try {
+            nav = document.getElementById("mainlogo").getBoundingClientRect().top + window.scrollY;
         }
-        else {
+        catch(err){
+            console.log(err)
+        }
+        if (page_position==0){
             this.setState({navBarClasses:[classes.MainBar], isScrolling:false});
         }
+        else if (!nav || page_position > 80) {
+            this.setState({navBarClasses:[classes.MainBar, classes.MainBarSticky], isScrolling:true})
+        }
+
     };
 
     componentDidMount(){
@@ -47,13 +54,14 @@ class StickyNavbar extends Component {
     render() {
         return (
                  <div className={this.state.navBarClasses.join(' ') } id="mainnavbar">
-                        {!this.state.isScrolling ? <img onMouseOver={this.handleOffHover}  src={eidosLogo} ></img> : null}
+                        {!this.state.isScrolling ? <img className={classes.MainLogoImg} id="mainlogo" onMouseOver={this.handleOffHover}  src={eidosLogo} ></img> : null}
                         <nav className={classes.Navbar}  >
                             <div className={classes.NavbarLeft}>
                                 {this.state.isScrolling ? <img src={eidosLogo} width={200} ></img> : null}
                             </div>
+
                             <div className={classes.NavbarMiddle}>
-                                <Link onMouseOver={this.handleOffHover}   to="/">Home</Link>
+                                <Link onMouseOver={this.handleOffHover}  to="/">Home</Link>
                                 <span className="nav-item dropdown" onMouseOver={this.handleOnHover} >
                                     <Link className="dropdown-toggle"
                                           href="/"

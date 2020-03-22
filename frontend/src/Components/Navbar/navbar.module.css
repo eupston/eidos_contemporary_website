@@ -10,8 +10,11 @@
 }
 
 .MainBar hr{
-    /*width:80%;*/
     color: #6a94ac;
+}
+
+.MainLogoImg {
+    margin-top: 20px;
 }
 
 .Navbar {
