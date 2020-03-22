@@ -1,84 +1,89 @@
-.Navbar {
-    /*position: fixed; !* Set the navbar to fixed position *!*/
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
+.MainBar {
+    top: 0;
+    width: 100%;
+    z-index: 1000;
     background-color: #ffffff;
+    font-size: 14px;
+}
+.MainBarSticky {
+    position: sticky;
+}
+
+.MainBar hr{
+    width:100%;
+    color: #6a94ac;
+}
+
+.Navbar {
+    display: flex;
+    justify-content: center;
+    /*margin-top: 120px;*/
+}
+
+.Navbar img {
+    margin-left: 20px;
+    /*justify-self: start;*/
+    /*align-self: start;*/
 }
 
 .Navbar nav {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    margin: -5px;
 }
 
-.Navbar a {
-    color: #6a94ac;
-    margin: 0px 40px 0px 40px;
-}
 .Navbar li {
     list-style: none;
 }
 
-.Navbar a:hover{
-    color: darkolivegreen;
+.Navbar span {
+    border-top: 1px solid transparent;
+    margin-top: 13px;
 }
 
-.Navbar hr{
-    width:80%;
+.Navbar a:hover,
+.Navbar a:active,
+.Navbar a:focus{
+    color: gray;
+    background-color: transparent;
+}
+
+
+.NavbarLeft {
+    position: absolute;
+    left: 20px;
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 20px;
+
+}
+
+.NavbarMiddle {
+    margin-top: 20px;
+
+}
+
+.NavbarMiddle a {
     color: #6a94ac;
+    margin: 0px 20px 0px 20px;
+    width: 80%;
+    text-decoration: none;
+}
+
+.NavbarRight {
+    position: absolute;
+    right: 100px;
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 20px;
 
 }
 
+.NavbarRight a {
+    color: #6a94ac;
+    margin: 0px 10px 0px 10px;
+    width: 80%;
+    text-decoration: none;
+}
 
-
-/*.dropdown {*/
-/*    float: left;*/
-/*    overflow: hidden;*/
-/*}*/
-
-/*!* Dropdown button *!*/
-/*.dropdown .dropbtn {*/
-/*    font-size: 16px;*/
-/*    border: none;*/
-/*    outline: none;*/
-/*    color: white;*/
-/*    padding: 14px 16px;*/
-/*    background-color: inherit;*/
-/*    font-family: inherit; !* Important for vertical align on mobile phones *!*/
-/*    margin: 0; !* Important for vertical align on mobile phones *!*/
-/*}*/
-
-/*!* Add a red background color to navbar links on hover *!*/
-/*.navbar a:hover, .dropdown:hover .dropbtn {*/
-/*    background-color: red;*/
-/*}*/
-
-/*!* Dropdown content (hidden by default) *!*/
-/*.dropdown_content {*/
-/*    display: none;*/
-/*    position: absolute;*/
-/*    background-color: #f9f9f9;*/
-/*    min-width: 160px;*/
-/*    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
-/*    z-index: 1;*/
-/*}*/
-
-/*!* Links inside the dropdown *!*/
-/*.dropdown-content a {*/
-/*    float: none;*/
-/*    color: black;*/
-/*    padding: 12px 16px;*/
-/*    text-decoration: none;*/
-/*    display: block;*/
-/*    text-align: left;*/
-/*}*/
-
-/*!* Add a grey background color to dropdown links on hover *!*/
-/*.dropdown_content a:hover {*/
-/*    background-color: #ddd;*/
-/*}*/
-
-/*!* Show the dropdown menu on hover *!*/
-/*.dropdown:hover .dropdown-content {*/
-/*    display: block;*/
-/*}*/
