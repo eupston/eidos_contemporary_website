@@ -16,7 +16,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'>
+      <div className='App' id="app">
         <Navbar />
         <Switch>
           <Route path='/jewelry' render={() => <Vendors />} />

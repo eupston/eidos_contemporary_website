@@ -20,13 +20,10 @@
 .Navbar {
     display: flex;
     justify-content: center;
-    /*margin-top: 120px;*/
 }
 
 .Navbar img {
     margin-left: 20px;
-    /*justify-self: start;*/
-    /*align-self: start;*/
 }
 
 .Navbar nav {
@@ -88,5 +85,45 @@
     margin: 0px 10px 0px 10px;
     width: 80%;
     text-decoration: none;
+}
+.NavbarMobile {
+    position: sticky;
+    z-index: 1000;
+    top:0;
+    background-color: white;
+
+}
+.NavbarMobileItems {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    z-index: 1000;
+    top:0;
+    background-color: white;
+
+}
+.NavbarMobileItems button {
+    margin: 20px 20px 0px 0px;
+    background-color: transparent;
+    border: transparent;
+    color: gray;
+    position: absolute;
+    left: 30px;
+    top: 0px;
+    display: inline-block;
+}
+.NavbarMobileItems button:focus {
+    outline: none;
+}
+.NavbarMobileItems button:active,
+.NavbarMobileItems button:hover {
+    color: #6a94ac;
+}
+
+
+.NavbarMobileItems img {
+    margin: 20px 20px 0px 20px;
+
 }
 
