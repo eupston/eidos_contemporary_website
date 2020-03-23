@@ -10,35 +10,76 @@
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    text-align: left;
+    border-right: 1px solid gainsboro;
+
+}
+
+.sidenavCarot {
+    color: gray;
+    margin-left:140px;
+    transform: rotate(0deg);
+    transition: all 0.15s 0.15s;
+}
+
+.sidenavCarotRotated{
+    transform: rotate(180deg);
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 10px 10px 10px 20px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 16px;
     color: #818181;
     display: block;
     transition: 0.3s;
+    position: relative;
+}
+
+.sidenav a:before {
+    content : "";
+    position: absolute;
+    left    : 20px;
+    bottom  : 0;
+    height  : 1px;
+    width   : 85%;
+    border-bottom: 1px solid gainsboro;
 }
 
 .sidenav a:hover {
     color: #6a94ac;
 }
 
+.sidenavDropDown a {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.sidenavDropDown a:focus,
+.sidenavDropDown a:active,
+.sidenavDropDown a:hover {
+    background-color: transparent;
+}
+
 .sidenav .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
-    font-size: 36px;
+    right: 0px;
+    font-size: 28px;
     margin-left: 50px;
+
 }
 
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
+.sidenav .closebtn:before {
+    border: 0px solid gainsboro;
 }
+
 
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    .sidenav a {font-size: 16px;}
+    .sidenavDropDown a {
+        font-size: 12px;
+        margin-left: 10px;
+    }
 }

@@ -59,23 +59,28 @@ class StickyNavbar extends Component {
         else{
             this.setState({mobile_navbar_active:false});
         }
-    }
-    openNav = ( ) => {
-        document.getElementById("mySidenav").style.width = "300px";
-        // document.getElementById("app").style.marginLeft = "300px";
+    };
 
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    openNav = ( ) => {
+        document.getElementById("mySidenav").style.width = "250px";
     };
 
     closeNav = () => {
         document.getElementById("mySidenav").style.width = "0";
-        // document.getElementById("app").style.marginLeft= "0";
     };
 
     vendorDropDowns = Object.keys(this.props.jewelers.vendors).map(ven => {
         const vendorURL = ven.toLowerCase().replace(" ", "-");
         const completeURL = "/jewelry/" + vendorURL;
-        return <Link onClick={this.closeNav} className="dropdown-item " to={completeURL}>{ven}</Link>
+        return <Link onClick={() => {
+                                    if (this.state.mobile_navbar_active) {
+                                        return this.closeNav();
+                                    }
+                                    else {
+                                        return null;
+                                    }
+                                }}
+                     className="dropdown-item " to={completeURL}>{ven}</Link>
     });
 
     render() {
@@ -98,7 +103,7 @@ class StickyNavbar extends Component {
                                           to="/"
                                           data-toggle="dropdown"
                                           aria-haspopup="true"
-                                          aria-expanded="false">Jewelery</Link>
+                                          aria-expanded="false">Jewelry</Link>
 
                                     <span className={this.state.isHovered ? "dropdown-menu show" : "dropdown-menu"}
                                           aria-labelledby="navbarDropdownMenuLink"
@@ -125,9 +130,7 @@ class StickyNavbar extends Component {
                 <div className={classes.NavbarMobileItems}>
                     <button aria-label="Menu"
                             data-header-nav-toggle=""
-                            onClick={this.openNav}
-
-                    >
+                            onClick={this.openNav}>
                                 <span className="navigation-toggle-icon">
                                 <svg aria-hidden="true"
                             focusable="false"
@@ -142,28 +145,32 @@ class StickyNavbar extends Component {
                         </svg>
                         </span>
                     </button>
-
                     <img src={eidosLogo} width={200} ></img>
              </div>
                 <div id="mySidenav" className="sidenav">
                     <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
                     <Link onClick={this.closeNav} to="/">Home</Link>
-                    <span className="nav-item dropdown" >
-                                     <Link className="dropdown-toggle"
-                                                 href="/"
-                                                 id="navbarDropdownMenuLink"
-                                                 to="/"
-                                                 data-toggle="dropdown"
-                                                 aria-haspopup="true"
-                                                 aria-expanded="false"
-                                                onClick={this.closeNav}>Jewelery</Link>
-
-                                           <span className="dropdown-menu"
-                                                 aria-labelledby="navbarDropdownMenuLink"
-                                           >
-                                               {this.vendorDropDowns}
-                                           </span>
-                        </span>
+                    <div className="panel-heading">
+                        <h4 className="panel-title">
+                            <a className="" data-toggle="collapse" href="#jewelerycollapse" onClick={() => {
+                                const element = document.getElementById("carot");
+                                if(element.classList.contains("sidenavCarotRotated")){
+                                        element.classList.remove("sidenavCarotRotated");
+                                }
+                                else{
+                                    element.classList.add("sidenavCarotRotated");
+                                }
+                                }}>
+                                Jewelry
+                                <i className="fa fa-caret-down sidenavCarot" id="carot"/>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="jewelerycollapse" className="panel-collapse collapse">
+                        <ul className="list-group sidenavDropDown">
+                            {this.vendorDropDowns}
+                        </ul>
+                    </div>
                     <Link onClick={this.closeNav} to="/our-story">Our Story</Link>
                     <Link onClick={this.closeNav} to="/custom">Custom</Link>
                     <Link onClick={this.closeNav} to="/contact">Contact</Link>
