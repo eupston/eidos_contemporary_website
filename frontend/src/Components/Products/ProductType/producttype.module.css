@@ -15,7 +15,6 @@
     top:40%;
     left: 45%;
     z-index: 2;
-
 }
 
 .ProductType img {
@@ -42,8 +41,6 @@
     transform: scale(1.05);
 }
 
-
-
 .ProductTypeItems {
     border-radius: 10px;
     width: 75%;
@@ -55,4 +52,16 @@
     flex-wrap: wrap;
     position: relative;
 
+}
+
+@media (min-width: 650px) and (max-width: 950px) {
+    .ProductType h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 650px) {
+    .ProductType h1 {
+        font-size: 18px;
+    }
 }
