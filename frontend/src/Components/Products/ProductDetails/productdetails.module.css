@@ -37,15 +37,34 @@
     color: #6a94ac;
     border: 1px solid #6a94ac;
     width: 80%;
+    height:10%;
     margin: 20px;
+    outline: none;
+    border-radius: 5px;
+    background-color: white;
 }
-.ProductDetails button:hover{
-    background-color: #6a94ac;
-    border: 1px solid #6a94ac;
-}
+
+.ProductDetails button:hover,
 .ProductDetails button:active{
     background-color: #6a94ac;
     border: 1px solid #6a94ac;
+    color: white;
+}
+
+.ProductInfo textarea {
+    border-color: #6a94ac;
+    border-radius: 5px;
+    width:80%;
+    height: 125px;
+    background-color: white;
+    color: gray;
+}
+.ProductInfo textarea:focus {
+    outline: none
+}
+
+.ProductInfo textarea::placeholder {
+    color: gray;
 }
 
 .SocialMedia a {
@@ -65,6 +84,20 @@
     margin: 10px 0px 0px 0px;
 }
 
+.SendRequest{
+}
+.SendRequestButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:82%;
+}
+.SendRequestButtons button{
+    height: 60%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
 
 @media (max-width: 600px) {
     .ProductInfo {

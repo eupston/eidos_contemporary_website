@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import classes from './productdetails.module.css';
 import Carousel from "../../../UI/Carousel/Carousel";
+import {connect} from 'react-redux';
+import axios from "axios";
+import customerQuery from "../../../Utils/CustomerQuery";
 
 class ProductDetails extends Component {
 
     state ={
         amount : this.props.productInfo.priceRange.maxVariantPrice.amount,
-        price: ""
+        price: "",
+        hasMadeRequest: false
     };
 
     componentWillMount() {
@@ -20,6 +24,60 @@ class ProductDetails extends Component {
             this.setState({price:"$"+this.state.amount + " USD"});
         }
     }
+
+    handleMakeRequest = () => {
+        this.setState({hasMadeRequest:true});
+    };
+
+    handleSendRequest = async () => {
+        if(!this.props.isLoggedIn){
+            alert("Please Login First.")
+        }
+        else {
+            const message = document.getElementById("product_message");
+            const customerData = await customerQuery(this.props.accessToken);
+            console.log(customerData.customer.firstName);
+            const subject = customerData.customer.firstName + " "
+                + customerData.customer.lastName
+                + " is inquiring about "
+                + this.props.productInfo.title;
+
+            const content = "<h3>Customer Message</h3>" +
+                "<br>" + message.value + "<br><hr>" +
+                "<br><h3>Product Information</h3>" +
+                "<br>" + "Product Name: " + this.props.productInfo.title +
+                "<br>" + "Product Price: " + this.price +
+                "<br>" + "Product Id: " + this.props.productInfo.id +
+                "<br>" + "Product Vendor: " + this.props.productInfo.vendor +
+                "<br>" + "Product Type: " + this.props.productInfo.productType +
+                "<br>" + "<img src=" + this.props.productInfo.images[0].originalSrc + " width='250' height='250' alt=''/>" +
+                "<hr>" + "<h3>Customer Information</h3>" +
+                "<br>" + "Customer Name: " + customerData.customer.firstName + " " + customerData.customer.lastName +
+                "<br>" + "Email: " + customerData.customer.email +
+                "<br>" + "Phone Number: " + customerData.customer.phonenumber;
+
+            const request = {
+                "subject": subject,
+                "content": content
+            };
+
+            axios.post('/api/v1/auth/email', request
+            )
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.data.message == "success") {
+                        console.log(res.data.data.message)
+                    }
+                    return res.data;
+                })
+                .catch(err => console.log(err));
+        }
+    };
+
+    handleCancelRequest = () => {
+        this.setState({hasMadeRequest:false});
+
+    };
 
     render() {
         const currencyCode = this.props.productInfo.priceRange.maxVariantPrice.currencyCode;
@@ -40,16 +98,43 @@ class ProductDetails extends Component {
                     <h6>{this.state.price}</h6>
                     <hr></hr>
                     <p>{this.props.productInfo.description}</p>
-                    <button type="button" className="btn btn-outline-dark">Make Request</button>
+                    {!this.state.hasMadeRequest ?
+                        <button type="button"  onClick={this.handleMakeRequest}>Make Request</button>
+                    :
+                        null
+                    }
                     <hr></hr>
-                    <div className={classes.SocialMedia}>
-                        <p>Contact Us</p>
-                        <a href="https://www.facebook.com/eidosjewelry/" className="fa fa-facebook"/>
-                        <a href="https://www.instagram.com/eidoscontemporary/" className="fa fa-instagram"/>
-                    </div>
+                    {!this.state.hasMadeRequest ?
+                        <div className={classes.SocialMedia}>
+                            <p>Contact Us</p>
+                            <a href="https://www.facebook.com/eidosjewelry/" className="fa fa-facebook"/>
+                            <a href="https://www.instagram.com/eidoscontemporary/" className="fa fa-instagram"/>
+                        </div>
+                    :
+                        <React.Fragment>
+                            <textarea
+                                id="product_message"
+                                type="textarea"
+                                control="input"
+                                placeholder=" Message"
+                                required
+                            />
+                            <div className={classes.SendRequestButtons}>
+                                <button type="button" onClick={this.handleSendRequest}>Send</button>
+                                <button type="button" onClick={this.handleCancelRequest}>Cancel</button>
+                            </div>
+                        </React.Fragment>
+                    }
                 </div>
             </div>
         );
     }
 }
-export default ProductDetails;
+const mapStateToProps = state => {
+    return {
+        accessToken: state.auth.customerAccessToken,
+        isLoggedIn: state.auth.isLoggedIn,
+    }
+};
+
+export default connect(mapStateToProps)(ProductDetails);
