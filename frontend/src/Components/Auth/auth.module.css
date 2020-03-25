@@ -4,10 +4,11 @@
     align-items: center;
     text-align: left;
     color: gray;
-
 }
 .Auth form {
     width: 40%;
+    min-width:400px;
+
 }
 .Auth button {
     margin-top: 20px;
@@ -34,6 +35,10 @@
     margin-top: 20px;
 }
 
+
 .Error {
     color: red;
+}
+.Success {
+    color: green;
 }

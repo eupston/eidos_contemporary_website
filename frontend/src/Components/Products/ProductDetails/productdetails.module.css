@@ -58,6 +58,7 @@
     height: 125px;
     background-color: white;
     color: gray;
+
 }
 .ProductInfo textarea:focus {
     outline: none

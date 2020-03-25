@@ -1,16 +1,22 @@
-import React, {Component} from 'react';
+import React,{Component} from 'react';
 import classes from './productdetails.module.css';
 import Carousel from "../../../UI/Carousel/Carousel";
 import {connect} from 'react-redux';
 import axios from "axios";
 import customerQuery from "../../../Utils/CustomerQuery";
+import Modal from "../../../UI/Modal/Modal";
+import Login from "../../Auth/Login/Login";
+import Signup from "../../Auth/Signup/Signup";
 
 class ProductDetails extends Component {
 
     state ={
         amount : this.props.productInfo.priceRange.maxVariantPrice.amount,
         price: "",
-        hasMadeRequest: false
+        hasMadeRequest: false,
+        showModal: false,
+        authMethod : "Login",
+        signedUp : false
     };
 
     componentWillMount() {
@@ -25,15 +31,24 @@ class ProductDetails extends Component {
         }
     }
 
+    handleModalHide = () => {
+        this.setState({showModal:false, authMethod:"Login"});
+    };
+
     handleMakeRequest = () => {
         this.setState({hasMadeRequest:true});
     };
 
+
     handleSendRequest = async () => {
         if(!this.props.isLoggedIn){
-            alert("Please Login First.")
+            // alert("Please Login First.")
+            // window.confirm("Please Click Ok to Confirm Sending this Message.")
+            this.setState({showModal:true});
+
         }
         else {
+            window.confirm("Please Click Ok to Confirm Sending this Message.")
             const message = document.getElementById("product_message");
             const customerData = await customerQuery(this.props.accessToken);
             console.log(customerData.customer.firstName);
@@ -79,6 +94,15 @@ class ProductDetails extends Component {
 
     };
 
+    handleAuthSwitch = () => {
+        if(this.state.authMethod === "Login") {
+            this.setState({authMethod: "Signup"});
+        }
+        else{
+            this.setState({authMethod: "Login"});
+        }
+    }
+
     render() {
         const currencyCode = this.props.productInfo.priceRange.maxVariantPrice.currencyCode;
         // const price = new Intl.NumberFormat(locale, {
@@ -111,6 +135,7 @@ class ProductDetails extends Component {
                             <a href="https://www.instagram.com/eidoscontemporary/" className="fa fa-instagram"/>
                         </div>
                     :
+
                         <React.Fragment>
                             <textarea
                                 id="product_message"
@@ -126,6 +151,29 @@ class ProductDetails extends Component {
                         </React.Fragment>
                     }
                 </div>
+                <Modal show={this.state.showModal} onHide={this.handleModalHide} {...this.props} >
+                    {this.state.authMethod === "Login" ?
+                            this.props.isLoggedIn ?
+                                <React.Fragment>
+                                    <p>Successfully Logged!</p>
+                                    <p>You May Close the Window</p>
+
+                                </React.Fragment>
+                                :
+                                <React.Fragment>
+                                    <Login redirect={false}/>
+                                    <h6 onClick={this.handleAuthSwitch}>Signup</h6>
+                                </React.Fragment>
+                        :
+                        !this.state.signedUp ?
+                            <React.Fragment>
+                                <Signup redirect={false}/>
+                                <h6 onClick={this.handleAuthSwitch}>Login</h6>
+                            </React.Fragment>
+                        :
+                        <Login redirect={false}/>
+                    }
+                </Modal>
             </div>
         );
     }

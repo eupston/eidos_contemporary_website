@@ -20,8 +20,8 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route path='/jewelry' render={() => <Vendors />} />
-          <Route path='/login' render={() => <Login />} />
-          <Route path='/signup' render={() => <Signup />} />
+          <Route path='/login' render={() => <Login redirect={true} />} />
+          <Route path='/signup' render={() => <Signup redirect={true} />} />
           <Route path='/contact' render={() => <Contact/>}/>
           <Route path='/' exact render={() => <Home/>} />
         </Switch>
