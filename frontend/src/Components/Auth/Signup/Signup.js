@@ -81,7 +81,18 @@ class Signup extends Component {
         }
         const errors = response.customerCreate.customerUserErrors;
         if(errors.length === 0) {
-            this.setState({isSignedUp: true, success: "Successfully Signed up."});
+            this.setState({
+                isSignedUp: true,
+                success: "Successfully Signed up.",
+                signupForm: {
+                    ...this.state.signupForm,
+                    firstName: { value: ""},
+                    lastName: { value: ""},
+                    email: { value: ""},
+                    password: { value: ""},
+                    confirmedPassword: { value: ""}
+                }
+            });
             console.log("signed up");
         }
         else{

@@ -157,7 +157,6 @@ class ProductDetails extends Component {
                                 <React.Fragment>
                                     <p>Successfully Logged!</p>
                                     <p>You May Close the Window</p>
-
                                 </React.Fragment>
                                 :
                                 <React.Fragment>

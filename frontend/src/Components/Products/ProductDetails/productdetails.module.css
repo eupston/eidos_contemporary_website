@@ -85,8 +85,6 @@
     margin: 10px 0px 0px 0px;
 }
 
-.SendRequest{
-}
 .SendRequestButtons{
     display: flex;
     flex-direction: row;
