@@ -3,6 +3,7 @@ import ShopifyQuery from "../../../Utils/ShopifyQuery";
 import { Redirect } from "react-router-dom";
 import classes from '../auth.module.css';
 import PageHeader from "../../../UI/PageHeader/PageHeader";
+import {isNullableType} from "graphql";
 
 class Signup extends Component {
     state = {
@@ -24,7 +25,8 @@ class Signup extends Component {
             }
         },
         isSignedUp: false,
-        errors:null
+        errors: null,
+        success: null,
     };
 
     inputChangeHandler = (event) => {
@@ -79,7 +81,18 @@ class Signup extends Component {
         }
         const errors = response.customerCreate.customerUserErrors;
         if(errors.length === 0) {
-            this.setState({isSignedUp: true});
+            this.setState({
+                isSignedUp: true,
+                success: "Successfully Signed up.",
+                signupForm: {
+                    ...this.state.signupForm,
+                    firstName: { value: ""},
+                    lastName: { value: ""},
+                    email: { value: ""},
+                    password: { value: ""},
+                    confirmedPassword: { value: ""}
+                }
+            });
             console.log("signed up");
         }
         else{
@@ -94,6 +107,9 @@ class Signup extends Component {
                 <PageHeader title={"Signup"}/>
                 <div className={classes.Error}>
                     {this.state.errors}
+                </div>
+                <div className={classes.Success}>
+                    {this.state.success}
                 </div>
                 <div className={classes.Auth}>
                     <form onSubmit={e => this.signupHandler(e, {
@@ -155,7 +171,7 @@ class Signup extends Component {
                         />
                         <button type="submit" className="btn btn-primary" >Signup</button>
                     </form>
-                    {this.state.isSignedUp ? <Redirect to={"/login"}/> : null}
+                    {this.props.redirect ? this.props.isSignedUp ? <Redirect to="/login"/> : null : null}
                 </div>
             </React.Fragment>
         );
