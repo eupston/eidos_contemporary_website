@@ -109,7 +109,7 @@ class Login extends Component {
                         />
                         <button type="submit" className="btn btn-primary" >Login</button>
                     </form>
-                    {this.props.redirect ? this.props.isLoggedIn ? <Redirect to="/"/> : null : null}
+                    {this.props.redirect ? this.props.isLoggedIn ? <Redirect to="/account"/> : null : null}
                 </div>
             </React.Fragment>
         );
