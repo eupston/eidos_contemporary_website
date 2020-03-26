@@ -1,0 +1,27 @@
+.OurStory p{
+    display: flex;
+}
+
+.OurStoryItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.OurStoryText {
+    text-align: left;
+    color: gray;
+    width: 50%;
+    margin: 40px;
+}
+.OurStoryText h5{
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+@media (max-width:750px){
+    .OurStoryText {
+        width: 80%;
+    }
+}
