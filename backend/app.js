@@ -36,6 +36,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
+
+
+
+
 app.use((req,res,next) => {
     res.setHeader('Access-Control-Allow-Headers','Content-Type, Authorization');
     next();
@@ -43,7 +48,11 @@ app.use((req,res,next) => {
 
 
 // Mount routers
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/admin', adminRouter);
