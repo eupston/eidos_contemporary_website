@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "client-install": "npm install --prefix frontend",
     "start": "nodemon ./bin/www",
-    "heroku-postbuild": "cd ../frontend && npm install && npm run build"
-
-  },
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+},
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
