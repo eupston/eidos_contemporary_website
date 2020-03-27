@@ -6,3 +6,9 @@ export const setCustomerAccessToken = (accessToken) => {
         customerAccessToken: accessToken
     };
 };
+
+export const customerLogout = () => {
+    return {
+        type:actionTypes.CUSTOMER_LOGOUT,
+    };
+};

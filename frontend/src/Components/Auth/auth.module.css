@@ -8,7 +8,10 @@
 .Auth form {
     width: 40%;
     min-width:400px;
-
+}
+.Auth a{
+    text-decoration: none;
+    color: #6a94ac;
 }
 .Auth button {
     margin-top: 20px;

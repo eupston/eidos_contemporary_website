@@ -11,20 +11,21 @@ import Footer from "./Components/Footer/Footer";
 import Contact from "./Components/Contact/Contact";
 import OurStory from "./Components/OurStory/OurStory";
 import Account from "./Components/Auth/Account/Account";
+import Logout from "./Components/Auth/Logout/Logout";
 
 
 class App extends Component {
-  state = { users: [] };
+  state = {};
 
   render() {
     return (
       <div className='App' >
         <Navbar />
             <Switch>
-
               <Route path='/jewelry' render={() => <Vendors />} />
               <Route path='/our-story' render={() => <OurStory />} />
               <Route path='/login' render={() => <Login redirect={true} />} />
+              <Route path='/logout' render={() => <Logout/>} />
               <Route path='/signup' render={() => <Signup redirect={true} />} />
               <Route path='/account' render={() => <Account/>}/>
               <Route path='/contact' render={() => <Contact/>}/>

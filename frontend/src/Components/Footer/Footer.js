@@ -16,29 +16,26 @@ export class Footer extends Component {
                     <small className="d-block mb-3 text-muted">Santa Fe, NM 87501</small>
                 </div>
                 <div className="col-6 col-md">
-                    <h5>Follow Us!</h5>
-                    <ul className="list-unstyled text-small">
-                    <li><i className="fa fa-twitter"></i><a className="text-muted" href="#"> Twitter</a></li>
-                    <li><i className="fa fa-instagram"></i><a className="text-muted" href="#"> Instagram</a></li>
-                    <li><i className="fa fa-facebook"></i><a className="text-muted" href="#"> Facebook</a></li>
-                    <li><i className="fa fa-google"></i><a className="text-muted" href="#"> Google+</a></li>
-                    </ul>
-                </div>
-                <div className="col-6 col-md">
                     <h5>Resources</h5>
                     <ul className="list-unstyled text-small">
-                    <li><Link className="text-muted" to="#">Returns and Exchanges</Link></li>
-                    <li><Link className="text-muted" to="#">Shipping Policy</Link></li>
-                    <li><Link className="text-muted" to="#">Ethical Trading</Link></li>
-                    <li><Link className="text-muted" to="#">Warranty</Link></li>
+                        <li><Link className="text-muted" to="#">Returns and Exchanges</Link></li>
+                        <li><Link className="text-muted" to="#">Shipping Policy</Link></li>
+                        <li><Link className="text-muted" to="#">Ethical Trading</Link></li>
+                        <li><Link className="text-muted" to="#">Warranty</Link></li>
                     </ul>
                 </div>
                 <div className="col-6 col-md">
                     <h5>About</h5>
                     <ul className="list-unstyled text-small">
-                    <li><Link className="text-muted" to="/our-story">Our Story</Link></li>
-                    <li><Link className="text-muted" to="/contact">Contact Us</Link></li>
-
+                        <li><Link className="text-muted" to="/our-story">Our Story</Link></li>
+                        <li><Link className="text-muted" to="/contact">Contact Us</Link></li>
+                    </ul>
+                </div>
+                <div className="col-6 col-md">
+                    <h5>Follow Us!</h5>
+                    <ul className="list-unstyled text-small">
+                    <li><i className="fa fa-instagram"></i><a className="text-muted" href="https://www.instagram.com/eidoscontemporary/"> Instagram</a></li>
+                    <li><i className="fa fa-facebook"></i><a className="text-muted" href="https://www.facebook.com/eidosjewelry/"> Facebook</a></li>
                     </ul>
                 </div>
             </div>
