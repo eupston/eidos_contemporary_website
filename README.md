@@ -36,7 +36,7 @@ localhost:5000/api/v1/users     --> GET all users
               /api/v1/users/:id --> DELETE
 ```
 ### Using advanced filtering and querying
-usefull links: 
+useful links: 
 
 https://docs.mongodb.com/manual/reference/operator/query/gt/
 
@@ -47,3 +47,16 @@ localhost:5000/api/v1/users?select=name,phone  // will only return name and phon
 
 localhost:5000/api/v1/users?ring_size[lte]=11&select=name,ring_size // return name and ring_size of those with ring_size lte 11 
 ```
+
+
+###Deployment:
+
+####Staging
+
+``cd frontend``
+
+``npm run build``
+
+Commit and Push Changes on Develop Branch
+
+Merge Develop into Staging
