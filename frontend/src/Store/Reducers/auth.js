@@ -14,6 +14,12 @@ const reducer = (state= initialState, action) => {
                 customerAccessToken: action.customerAccessToken,
                 isLoggedIn: true
             };
+        case actionTypes.CUSTOMER_LOGOUT:
+            return {
+                ...state,
+                customerAccessToken: "",
+                isLoggedIn: false
+            };
         default:
             return {...state};
     }

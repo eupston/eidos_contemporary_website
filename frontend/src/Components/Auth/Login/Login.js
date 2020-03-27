@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import classes from '../auth.module.css';
 import ShopifyQuery from "../../../Utils/ShopifyQuery";
-import { Redirect } from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import * as authActions from '../../../Store/Actions/index';
 import PageHeader from "../../../UI/PageHeader/PageHeader";
 
@@ -108,8 +108,9 @@ class Login extends Component {
                             onChange={this.inputChangeHandler}
                         />
                         <button type="submit" className="btn btn-primary" >Login</button>
+                        {this.props.redirect ?  <p>New Customer? <Link to={'/signup'}>Signup</Link></p> : null}
                     </form>
-                    {this.props.redirect ? this.props.isLoggedIn ? <Redirect to="/"/> : null : null}
+                    {this.props.redirect ? this.props.isLoggedIn ? <Redirect to="/account"/> : null : null}
                 </div>
             </React.Fragment>
         );

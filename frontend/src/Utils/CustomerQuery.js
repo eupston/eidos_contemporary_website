@@ -10,6 +10,13 @@ const customerQuery = (accessToken) => {
                         lastName
                         email
                         phone
+                        defaultAddress {
+                            id
+                            address1
+                            city
+                            country
+                            zip
+                        }
                     }
                 }`,
         variables: {

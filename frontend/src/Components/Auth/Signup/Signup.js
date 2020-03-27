@@ -46,8 +46,6 @@ class Signup extends Component {
 
     signupHandler = async (event, data) => {
         event.preventDefault();
-        console.log(data.password);
-        console.log(data.confirmedPassword);
         if(data.password !== data.confirmedPassword) {
             this.setState({errors: "Passwords don't match"});
             return null

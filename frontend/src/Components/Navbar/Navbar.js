@@ -118,8 +118,13 @@ class StickyNavbar extends Component {
                                 <Link  to="/contact">Contact</Link>
                             </div>
                             <div className={classes.NavbarRight}>
-                                <Link to="/login">Login</Link>
-                                <Link to="/signup">Signup</Link>
+                                <Link to="/"><i className="fa fa-home fa-2x"></i></Link>
+                                <Link to="/login"><i className="fa fa-user fa-2x"></i></Link>
+                                {this.props.isLoggedIn ?
+                                    <Link to="/logout"><i className="fa fa-sign-out fa-2x"></i></Link>
+                                    :
+                                    null
+                                }
                             </div>
                         </nav>
                      {!this.state.isScrolling ? <hr style={{width:"80%"}}></hr> :  <hr style={{width:"100%"}}></hr>}
@@ -174,8 +179,17 @@ class StickyNavbar extends Component {
                     <Link onClick={this.closeNav} to="/our-story">Our Story</Link>
                     <Link onClick={this.closeNav} to="/custom">Custom</Link>
                     <Link onClick={this.closeNav} to="/contact">Contact</Link>
-                    <Link onClick={this.closeNav} to="/login">Login</Link>
-                    <Link onClick={this.closeNav} to="/signup">Signup</Link>
+                    {!this.props.isLoggedIn ?
+                        <React.Fragment>
+                            <Link onClick={this.closeNav} to="/login">Login</Link>
+                            <Link onClick={this.closeNav} to="/signup">Signup</Link>
+                        </React.Fragment>
+                        :
+                        <React.Fragment>
+                            <Link onClick={this.closeNav} to="/account">Account</Link>
+                            <Link onClick={this.closeNav} to="/logout">Logout</Link>
+                        </React.Fragment>
+                    }
                 </div>
                 <hr style={{width:"100%"}}/>
             </div>}
@@ -187,6 +201,7 @@ class StickyNavbar extends Component {
 const mapStateToProps = state => {
     return {
         jewelers: state.vendors,
+        isLoggedIn: state.auth.isLoggedIn
     }
 };
 

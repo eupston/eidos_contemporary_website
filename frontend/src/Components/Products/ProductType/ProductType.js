@@ -15,7 +15,6 @@ class ProductType extends Component {
                     return img.node
                 })};
         });
-        console.log(cleanedProducts);
         this.setState({products:cleanedProducts});
     };
 
@@ -33,7 +32,6 @@ class ProductType extends Component {
                     <div className={classes.ProductTypeItems}>
                         {productImgElements}
                         <h1>{this.props.productType}</h1>
-
                     </div>
                 </div>
             </Link>

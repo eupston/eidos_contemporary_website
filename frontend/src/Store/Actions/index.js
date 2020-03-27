@@ -1,1 +1,1 @@
-export{ setCustomerAccessToken } from './auth';
+export{ setCustomerAccessToken, customerLogout } from './auth';
