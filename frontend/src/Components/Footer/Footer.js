@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {Link} from 'react-router-dom';
 import eidosLogo from '../../assets/images/EidosLogo.jpg'
 import './footer.css';
+import Logo from "../../UI/Logo/Logo";
 
 export class Footer extends Component {
   render() {
@@ -10,7 +11,8 @@ export class Footer extends Component {
             <hr></hr>
             <div className="row">
                 <div className="col-12 col-md">
-                    <img src={eidosLogo} width={150} ></img>
+                    {/*<img src={eidosLogo} width={150} ></img>*/}
+                    <Logo subtitle={true} subtitle_size={'6'}/>
                     <small className="d-block mb-3 text-muted">&copy; Eidos Jewelry 2020</small>
                     <small className="d-block mb-3 text-muted">508 Camino de la Familia</small>
                     <small className="d-block mb-3 text-muted">Santa Fe, NM 87501</small>

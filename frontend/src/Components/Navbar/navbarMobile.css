@@ -12,12 +12,11 @@
     padding-top: 60px;
     text-align: left;
     border-right: 1px solid gainsboro;
-
 }
 
 .sidenavCarot {
     color: gray;
-    margin-left:140px;
+    margin-left:120px;
     transform: rotate(0deg);
     transition: all 0.15s 0.15s;
 }
@@ -47,7 +46,7 @@
 }
 
 .sidenav a:hover {
-    color: #6a94ac;
+    color: Black;
 }
 
 .sidenavDropDown a {

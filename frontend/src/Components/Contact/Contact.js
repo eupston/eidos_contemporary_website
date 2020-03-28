@@ -3,6 +3,7 @@ import classes from './contact.module.css';
 import eidosLogo from "../../assets/images/EidosLogo.jpg";
 import PageHeader from "../../UI/PageHeader/PageHeader";
 import axios from 'axios';
+import Logo from "../../UI/Logo/Logo";
 
 class Contact extends Component {
     state = {
@@ -86,7 +87,8 @@ class Contact extends Component {
                 </div>
                 <div className={classes.Contact} >
                     <div className={classes.Address}>
-                        <img src={eidosLogo} width={300} ></img>
+                        {/*<img src={eidosLogo} width={300} ></img>*/}
+                        <Logo size={"3"} subtitle={true}/>
                         <span>
                             <br/>Gordon Lawrie and Deborah Alexander
                             <br/>508 Camino de la Familia

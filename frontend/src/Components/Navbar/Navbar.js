@@ -4,6 +4,7 @@ import eidosLogo from '../../assets/images/EidosLogo.jpg';
 import {Link} from "react-router-dom";
 import {connect} from 'react-redux';
 import './navbarMobile.css'
+import Logo from "../../UI/Logo/Logo";
 
 class StickyNavbar extends Component {
     state = {
@@ -88,10 +89,14 @@ class StickyNavbar extends Component {
             <React.Fragment>
                 {!this.state.mobile_navbar_active ?
                   <div className={this.state.navBarClasses.join(' ') } id="mainnavbar">
-                         {!this.state.isScrolling ? <img className={classes.MainLogoImg} id="mainlogo" onMouseOver={this.handleOffHover}  src={eidosLogo} ></img> : null}
-                         <nav className={classes.Navbar}  >
+                         {/*{!this.state.isScrolling ? <img className={classes.MainLogoImg} id="mainlogo" onMouseOver={this.handleOffHover}  src={eidosLogo} ></img> : null}*/}
+                         {!this.state.isScrolling ? <Logo subtitle={true} size={"5"} /> : null}
+
+
+                      <nav className={classes.Navbar}  >
                              <div className={classes.NavbarLeft}>
-                                 {this.state.isScrolling ? <img src={eidosLogo} width={200} ></img> : null}
+                                 {/*{this.state.isScrolling ? <img src={eidosLogo} width={200} ></img> : null}*/}
+                                 {this.state.isScrolling ? <Logo subtitle={false} size={"2"} />: null}
                              </div>
 
                              <div className={classes.NavbarMiddle}>
@@ -150,7 +155,7 @@ class StickyNavbar extends Component {
                         </svg>
                         </span>
                     </button>
-                    <img src={eidosLogo} width={200} ></img>
+                    <Logo subtitle={true} size={"1"} />
              </div>
                 <div id="mySidenav" className="sidenav">
                     <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
