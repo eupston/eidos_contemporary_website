@@ -115,7 +115,7 @@ class StickyNavbar extends Component {
                                     </span>
                                 </span>
                                 <Link onMouseOver={this.handleOffHover} to="/our-story">Our Story</Link>
-                                <Link  to="/custom">Custom</Link>
+                                {/*<Link  to="/custom">Custom</Link>*/}
                                 <Link  to="/contact">Contact</Link>
                             </div>
                             <div className={classes.NavbarRight}>
@@ -178,7 +178,7 @@ class StickyNavbar extends Component {
                         </ul>
                     </div>
                     <Link onClick={this.closeNav} to="/our-story">Our Story</Link>
-                    <Link onClick={this.closeNav} to="/custom">Custom</Link>
+                    {/*<Link onClick={this.closeNav} to="/custom">Custom</Link>*/}
                     <Link onClick={this.closeNav} to="/contact">Contact</Link>
                     {!this.props.isLoggedIn ?
                         <React.Fragment>

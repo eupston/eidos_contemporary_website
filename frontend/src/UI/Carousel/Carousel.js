@@ -7,7 +7,7 @@ const Carousel = (props) => {
     const carouselItems = props.images.map((img, index) => {
         if (index === 0) {
             return (
-                <div className="carousel-item active"  >
+                <div className="carousel-item active" onClick={() => props.clickHandler(img.originalSrc)} >
                     <GlassMagnifier
                         style={{width:props.carousel_item_width +"px", height:props.carousel_item_height + "px", margin: "0 auto"}}
                         alt={index}
@@ -23,7 +23,7 @@ const Carousel = (props) => {
             )
         } else {
             return (
-                <div className="carousel-item ">
+                <div className="carousel-item " onClick={() => props.clickHandler(img.originalSrc)}>
                     <GlassMagnifier
                         style={{width:props.carousel_item_width +"px", height:props.carousel_item_height + "px", margin: "0 auto"}}
                         alt={index}
@@ -33,6 +33,7 @@ const Carousel = (props) => {
                         magnifierBorderColor={"rgba(255,255,255,.5)"}
                         magnifierSize={"60%"}
                         magnifierBorderSize={0}
+
                     />
                 </div>
             )
@@ -43,7 +44,7 @@ const Carousel = (props) => {
         if (index === 0) {
             return (
                 <li data-target="#carousel-thumb" data-slide-to={index} className="active">
-                    <img src={img.originalSrc} width="70"/>
+                    <img src={img.originalSrc} width="70" />
                 </li>
             )
         } else {
