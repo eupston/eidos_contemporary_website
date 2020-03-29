@@ -46,20 +46,25 @@ class Account extends Component {
             return false;
         }
         const customerData = await customerQuery(this.props.accessToken);
+        const customerHasAddress = customerData.customer.defaultAddress;
         this.setState({
-            addressId: customerData.customer.defaultAddress.id,
             id: customerData.customer.id,
             customerForm: {
             ...this.state.customerForm,
                 firstName: { value: customerData.customer.firstName},
                 lastName: { value: customerData.customer.lastName},
                 email: { value: customerData.customer.email},
-                phoneNumber: { value: customerData.customer.phone},
-                street: { value: customerData.customer.defaultAddress.address1},
-                city: { value: customerData.customer.defaultAddress.city},
-                country: { value: customerData.customer.defaultAddress.country},
-                zip: { value: customerData.customer.defaultAddress.zip}
+                phoneNumber: { value: customerData.customer.phone}
         }});
+        if(customerHasAddress) {
+            this.setState({
+                addressId: customerData.customer.defaultAddress.id,
+                street: {value: customerData.customer.defaultAddress.address1},
+                city: {value: customerData.customer.defaultAddress.city},
+                country: {value: customerData.customer.defaultAddress.country},
+                zip: {value: customerData.customer.defaultAddress.zip}
+            })
+        }
     };
     
     inputChangeHandler = (event) => {

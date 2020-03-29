@@ -29,12 +29,10 @@ class StickyNavbar extends Component {
     handleStickyNavbar = () => {
         const page_position = window.pageYOffset;
         let nav = false;
-        try {
+        if(document.getElementById("mainlogo")) {
             nav = document.getElementById("mainlogo").getBoundingClientRect().top + window.scrollY;
         }
-        catch(err){
-            console.log(err)
-        }
+
         if (page_position==0){
             this.setState({navBarClasses:[classes.MainBar], isScrolling:false});
         }
@@ -73,7 +71,7 @@ class StickyNavbar extends Component {
     vendorDropDowns = Object.keys(this.props.jewelers.vendors).map(ven => {
         const vendorURL = ven.toLowerCase().replace(" ", "-");
         const completeURL = "/jewelry/" + vendorURL;
-        return <Link onClick={() => {
+        return <Link key={ven} onClick={() => {
                                     if (this.state.mobile_navbar_active) {
                                         return this.closeNav();
                                     }

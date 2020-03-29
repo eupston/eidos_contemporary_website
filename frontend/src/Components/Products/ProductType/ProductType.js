@@ -24,7 +24,7 @@ class ProductType extends Component {
         }
 
         const productImgElements = this.state.products.map(prod => {
-            return <img src={prod.images[0].originalSrc} alt="" />
+            return <img key={prod.title} src={prod.images[0].originalSrc} alt="" />
         });
         return (
             <Link className={classes.Link} to={this.props.completeProductURL}>
