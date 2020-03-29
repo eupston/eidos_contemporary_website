@@ -17,7 +17,9 @@ class ProductDetails extends Component {
         hasMadeRequest: false,
         showModal: false,
         authMethod : "Login",
-        signedUp : false
+        signedUp : false,
+        showImgModel:false,
+        imgURLSelected: null
     };
 
     componentWillMount() {
@@ -31,6 +33,16 @@ class ProductDetails extends Component {
             this.setState({price:"$"+this.state.amount + " USD"});
         }
     }
+
+    handleImageClick = (imgUrl) => {
+        console.log(imgUrl)
+        this.setState({showImgModel:true, imgURLSelected:imgUrl});
+    }
+
+    handleImageModalHide = () => {
+        this.setState({showImgModel:false, imgURLClick:''});
+    }
+
 
     handleModalHide = () => {
         this.setState({showModal:false, authMethod:"Login"});
@@ -117,6 +129,7 @@ class ProductDetails extends Component {
                     images={this.props.productInfo.images}
                     carousel_item_width={"400"}
                     carousel_item_height={"400"}
+                    clickHandler={this.handleImageClick.bind(this)}
                 />
                 <div className={classes.ProductInfo}>
                     <h4>{this.props.productInfo.title}</h4>
@@ -152,6 +165,9 @@ class ProductDetails extends Component {
                         </React.Fragment>
                     }
                 </div>
+                <Modal show={this.state.showImgModel} onHide={this.handleImageModalHide} {...this.props} >
+                    <img src={this.state.imgURLSelected} width={"650"} alt={''}/>
+                </Modal>
                 <Modal show={this.state.showModal} onHide={this.handleModalHide} {...this.props} >
                     {this.state.authMethod === "Login" ?
                             this.props.isLoggedIn ?
