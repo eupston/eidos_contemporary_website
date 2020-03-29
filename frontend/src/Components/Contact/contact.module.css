@@ -41,25 +41,12 @@
 
 .ContactForm button {
     margin-top: 20px;
-    background-color: Black;
-    border-color: Black;
+    margin-left: 0px;
     width: 40%;
     margin-bottom: 20px;
+    min-height: 40px;
 
 }
-
-.ContactForm button:hover{
-    background-color: gray;
-    border-color: Black;
-}
-
-.ContactForm button:focus,
-.ContactForm button:active {
-    outline: none;
-    box-shadow: none;
-    border-color: Black;
-}
-
 
 .ContactForm label {
     margin-top: 20px;

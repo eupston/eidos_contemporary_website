@@ -6,7 +6,7 @@
     color: gray;
 }
 .Auth form {
-    width: 40%;
+    width: 60%;
     min-width:400px;
 }
 .Auth a{
@@ -15,22 +15,11 @@
 }
 .Auth button {
     margin-top: 20px;
-    background-color: Black;
-    border-color: Black;
+    margin-left: 0px;
     width: 40%;
+    height: 20%;
+    min-height: 40px;
     margin-bottom: 20px;
-
-}
-
-.Auth button:hover{
-    background-color: gray;
-    border-color: Black;
-}
-
-.Auth button:focus,
-.Auth button:active {
-    outline: none;
-    box-shadow: none;
 }
 
 
@@ -45,3 +34,4 @@
 .Success {
     color: green;
 }
+

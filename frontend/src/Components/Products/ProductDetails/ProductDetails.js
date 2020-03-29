@@ -7,6 +7,7 @@ import customerQuery from "../../../Utils/CustomerQuery";
 import Modal from "../../../UI/Modal/Modal";
 import Login from "../../Auth/Login/Login";
 import Signup from "../../Auth/Signup/Signup";
+import Button from "../../../UI/Button/Button";
 
 class ProductDetails extends Component {
 
@@ -123,7 +124,7 @@ class ProductDetails extends Component {
                     <hr></hr>
                     <p>{this.props.productInfo.description}</p>
                     {!this.state.hasMadeRequest ?
-                        <button type="button"  onClick={this.handleMakeRequest}>Make Request</button>
+                        <Button title={"Make Request"} onClick={this.handleMakeRequest}/>
                     :
                         null
                     }
@@ -145,8 +146,8 @@ class ProductDetails extends Component {
                                 required
                             />
                             <div className={classes.SendRequestButtons}>
-                                <button type="button" onClick={this.handleSendRequest}>Send</button>
-                                <button type="button" onClick={this.handleCancelRequest}>Cancel</button>
+                                <Button title={"Send"} onClick={this.handleSendRequest}/>
+                                <Button title={"Cancel"} onClick={this.handleCancelRequest}/>
                             </div>
                         </React.Fragment>
                     }

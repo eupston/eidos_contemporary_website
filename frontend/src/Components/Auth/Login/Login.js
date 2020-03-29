@@ -6,6 +6,7 @@ import ShopifyQuery from "../../../Utils/ShopifyQuery";
 import {Link, Redirect} from "react-router-dom";
 import * as authActions from '../../../Store/Actions/index';
 import PageHeader from "../../../UI/PageHeader/PageHeader";
+import Button from "../../../UI/Button/Button";
 
 // example login that's active
 // email: "user@example.com"
@@ -107,7 +108,7 @@ class Login extends Component {
                             value={this.state.loginForm['password'].value}
                             onChange={this.inputChangeHandler}
                         />
-                        <button type="submit" className="btn btn-primary" >Login</button>
+                        <Button type={'submit'} title={'Login'} Inverted={true} />
                         {this.props.redirect ?  <p>New Customer? <Link to={'/signup'}>Signup</Link></p> : null}
                     </form>
                     {this.props.redirect ? this.props.isLoggedIn ? <Redirect to="/account"/> : null : null}

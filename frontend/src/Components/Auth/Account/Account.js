@@ -5,6 +5,7 @@ import customerQuery from "../../../Utils/CustomerQuery";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import ShopifyQuery from "../../../Utils/ShopifyQuery";
+import Button from "../../../UI/Button/Button";
 
 class Account extends Component {
     state = {
@@ -138,24 +139,22 @@ class Account extends Component {
         }
 
         const response = await ShopifyQuery(customerUpdateQuery);
-        let errors = response.customerUpdate.customerUserErrors;
-        if(errors.length === 0) {
+        const addressResponse = await ShopifyQuery(customerAddressUpdate);
+
+        const errors = response.customerUpdate.customerUserErrors;
+        const addressErrors = addressResponse.customerAddressUpdate.customerUserErrors;
+
+        if(errors.length === 0 && addressErrors.length === 0) {
             this.setState({ success: "Successfully Updated Account Information."});
         }
-        else{
+        else if (errors.length !== 0 ){
             console.log(errors[0].message);
             this.setState({errors:errors[0].message, success:null})
             return false;
         }
-
-        const addressResponse = await ShopifyQuery(customerAddressUpdate);
-        errors = addressResponse.customerAddressUpdate.customerUserErrors;
-        if(errors.length === 0) {
-            this.setState({ success: "Successfully Updated Account Information."});
-        }
         else{
-            console.log(errors[0].message);
-            this.setState({errors:errors[0].message, success:null})
+            console.log(addressErrors[0].message);
+            this.setState({errors:addressErrors[0].message, success:null})
             return false;
         }
 
@@ -264,7 +263,7 @@ class Account extends Component {
                                 value={this.state.customerForm['zip'].value}
                                 onChange={this.inputChangeHandler}
                             />
-                            <button type="submit" className="btn btn-primary" >Update Information</button>
+                            <Button type={'submit'} title={'Update Information'} Inverted={true} />
                         </form>
 
                     </div>

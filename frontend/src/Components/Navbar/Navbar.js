@@ -87,13 +87,11 @@ class StickyNavbar extends Component {
             <React.Fragment>
                 {!this.state.mobile_navbar_active ?
                   <div className={this.state.navBarClasses.join(' ') } id="mainnavbar">
-                         {/*{!this.state.isScrolling ? <img className={classes.MainLogoImg} id="mainlogo" onMouseOver={this.handleOffHover}  src={eidosLogo} ></img> : null}*/}
                          {!this.state.isScrolling ? <Logo subtitle={true} size={"5"} /> : null}
 
 
                       <nav className={classes.Navbar}  >
                              <div className={classes.NavbarLeft}>
-                                 {/*{this.state.isScrolling ? <img src={eidosLogo} width={200} ></img> : null}*/}
                                  {this.state.isScrolling ? <Logo subtitle={false} size={"2"} />: null}
                              </div>
 
@@ -130,7 +128,7 @@ class StickyNavbar extends Component {
                                 }
                             </div>
                         </nav>
-                     {!this.state.isScrolling ? <hr style={{width:"80%"}}></hr> :  <hr style={{width:"100%"}}></hr>}
+                     {!this.state.isScrolling ? <hr style={{width:"100%"}}></hr> :  <hr style={{width:"100%"}}></hr>}
                  </div>
                     :
             <div className={classes.NavbarMobile}>

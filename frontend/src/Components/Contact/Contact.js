@@ -4,6 +4,7 @@ import eidosLogo from "../../assets/images/EidosLogo.jpg";
 import PageHeader from "../../UI/PageHeader/PageHeader";
 import axios from 'axios';
 import Logo from "../../UI/Logo/Logo";
+import Button from "../../UI/Button/Button";
 
 class Contact extends Component {
     state = {
@@ -165,7 +166,8 @@ class Contact extends Component {
                                 onChange={this.inputChangeHandler}
                                 required
                             />
-                            <button type="submit" className="btn btn-primary" >Submit</button>
+                            {/*<button type="submit" className="btn btn-primary" >Submit</button>*/}
+                            <Button type="submit" Inverted={true} title={"Submit"}/>
                         </form>
                     </div>
                 </div>

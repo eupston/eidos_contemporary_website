@@ -33,24 +33,6 @@
     width: 80%;
 }
 
-.ProductInfo button {
-    color: Black;
-    border: 1px solid Black;
-    width: 80%;
-    height:10%;
-    margin: 20px;
-    outline: none;
-    border-radius: 5px;
-    background-color: white;
-}
-
-.ProductDetails button:hover,
-.ProductDetails button:active{
-    background-color: Black;
-    border: 1px solid Black;
-    color: white;
-}
-
 .ProductInfo textarea {
     border-color: Black;
     border-radius: 5px;

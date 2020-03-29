@@ -1,0 +1,42 @@
+.Button{
+    color: Black;
+    border: 1px solid Black;
+    width: 80%;
+    height:10%;
+    margin: 20px;
+    outline: none;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.Button:hover,
+.Button:active{
+    background-color: Black;
+    border: 1px solid Black;
+    color: white;
+}
+
+.Button:focus {
+    outline: none
+}
+
+.InvertedButton{
+    color: white;
+    border: 1px solid Black;
+    width: 80%;
+    height:10%;
+    margin: 20px;
+    outline: none;
+    border-radius: 5px;
+    background-color: black;
+}
+
+.InvertedButton:hover,
+.InvertedButton:active{
+    background-color: white;
+    border: 1px solid Black;
+    color: black;
+}
+.InvertedButton:focus {
+    outline: none
+}
