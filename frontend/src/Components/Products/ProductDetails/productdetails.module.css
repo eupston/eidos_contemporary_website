@@ -10,7 +10,7 @@
 
 .ProductDetails h4{
     margin: 20px;
-    color:  Black;
+    color:  #36454f;
 }
 
 .ProductInfo hr {
@@ -34,7 +34,7 @@
 }
 
 .ProductInfo textarea {
-    border-color: Black;
+    border-color: #36454f;
     border-radius: 5px;
     width:80%;
     height: 125px;
@@ -61,7 +61,7 @@
 .SocialMedia a:hover{
     opacity: 0.7;
     background-color: white;
-    color: black;
+    color: #36454f;
 
 }
 

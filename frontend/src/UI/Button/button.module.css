@@ -1,6 +1,6 @@
 .Button{
-    color: Black;
-    border: 1px solid Black;
+    color: #36454f;
+    border: 1px solid #36454f;
     width: 80%;
     height:10%;
     margin: 20px;
@@ -11,8 +11,8 @@
 
 .Button:hover,
 .Button:active{
-    background-color: Black;
-    border: 1px solid Black;
+    background-color: #36454f;
+    border: 1px solid #36454f;
     color: white;
 }
 
@@ -22,20 +22,20 @@
 
 .InvertedButton{
     color: white;
-    border: 1px solid Black;
+    border: 1px solid #36454f;
     width: 80%;
     height:10%;
     margin: 20px;
     outline: none;
     border-radius: 5px;
-    background-color: black;
+    background-color: #36454f;
 }
 
 .InvertedButton:hover,
 .InvertedButton:active{
     background-color: white;
-    border: 1px solid Black;
-    color: black;
+    border: 1px solid #36454f;
+    color: #36454f;
 }
 .InvertedButton:focus {
     outline: none

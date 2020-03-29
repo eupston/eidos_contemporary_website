@@ -1,19 +1,39 @@
 import React from 'react';
 import classes from './carousel.module.css';
+import { GlassMagnifier} from "react-image-magnifiers";
 
 const Carousel = (props) => {
 
     const carouselItems = props.images.map((img, index) => {
         if (index === 0) {
             return (
-                <div className="carousel-item active">
-                    <img width={props.carousel_item_width} height={props.carousel_item_height} src={img.originalSrc} alt={index}/>
+                <div className="carousel-item active"  >
+                    <GlassMagnifier
+                        style={{width:props.carousel_item_width +"px", height:props.carousel_item_height + "px", margin: "0 auto"}}
+                        alt={index}
+                        imageSrc={img.originalSrc}
+                        imageAlt={img.id}
+                        allowOverflow={true}
+                        magnifierBorderColor={"rgba(255,255,255,.5)"}
+                        magnifierSize={"60%"}
+                        magnifierBorderSize={0}
+                    />
+
                 </div>
             )
         } else {
             return (
                 <div className="carousel-item ">
-                    <img width={props.carousel_item_width} height={props.carousel_item_height} src={img.originalSrc} alt={index}/>
+                    <GlassMagnifier
+                        style={{width:props.carousel_item_width +"px", height:props.carousel_item_height + "px", margin: "0 auto"}}
+                        alt={index}
+                        imageSrc={img.originalSrc}
+                        imageAlt={img.id}
+                        allowOverflow={true}
+                        magnifierBorderColor={"rgba(255,255,255,.5)"}
+                        magnifierSize={"60%"}
+                        magnifierBorderSize={0}
+                    />
                 </div>
             )
         }
@@ -38,7 +58,8 @@ const Carousel = (props) => {
     return (
         <div className={classes.Carousel}>
                 <div id="carousel-thumb" className="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
-                    <div className="carousel-inner" role="listbox">
+                    <div className="carousel-inner" role="listbox" >
+
                         {carouselItems}
                     </div>
                     <a className="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">

@@ -10,7 +10,7 @@
 }
 
 .MainBar hr{
-    color: Black;
+    color: #36454f;
 }
 
 .MainLogoImg {
@@ -45,7 +45,7 @@
 .Navbar a:hover,
 .Navbar a:active,
 .Navbar a:focus{
-    color: black;
+    color: #36454f;
     background-color: transparent;
 }
 
@@ -119,7 +119,7 @@
 }
 .NavbarMobileItems button:active,
 .NavbarMobileItems button:hover {
-    color: Black;
+    color: #36454f;
 }
 
 
