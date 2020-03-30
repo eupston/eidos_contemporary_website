@@ -4,7 +4,7 @@ const axios = require('../utils/AxiosShopify');
 
 // // @desc    Gets all vendors and their products types in store
 // // @route   GET /api/v1/shopify_admin/vendor_product_types
-// // @access  PRIVATE
+// // @access  PUBLIC
 exports.getVendorProductTypes = asyncHandler(async (req, res, next) => {
     const response = await axios.get('/products.json?fields=vendor,productType')
     if(response.data.products){
