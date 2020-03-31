@@ -1,7 +1,24 @@
 import React, {Component} from 'react';
 import classes from './home.module.css';
+import InstagramQuery from "../../Utils/InstagramQuery";
+import PageHeader from "../../UI/PageHeader/PageHeader";
 class Home extends Component {
+
+    state = {
+        instagramImages : []
+    }
+
+    async componentWillMount() {
+    const instaPosts = await InstagramQuery(6);
+    const imageURLs = instaPosts.map(post => {
+        return post.node.display_url
+    })
+      this.setState({instagramImages:imageURLs});
+    }
     render() {
+        const instaImageURLs = this.state.instagramImages.map(img => {
+            return <img src={img} width={300} height={300} alt=""/>
+        })
         return (
             <div className={classes.Home}>
                 <div id="carouselControls" className="carousel slide" data-ride="carousel" data-interval="4000">
@@ -22,6 +39,11 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
+                <PageHeader title="Instagram Feed"/>
+                <div className={classes.InstagramImages}>
+                    {instaImageURLs}
+                </div>
+
             </div>
         );
     }

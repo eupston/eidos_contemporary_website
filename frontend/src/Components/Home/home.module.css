@@ -2,3 +2,18 @@
     margin-top: -20px;
     margin-bottom: -20px;
 }
+
+.InstagramImages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+
+}
+
+.InstagramImages img{
+    margin: 5px;
+    /*border: 1px solid #36454f;*/
+    box-shadow:  0 5px 10px gray;
+}

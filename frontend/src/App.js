@@ -14,11 +14,10 @@ import Account from "./Components/Auth/Account/Account";
 import Logout from "./Components/Auth/Logout/Logout";
 import * as authActions from "./Store/Actions";
 import {connect} from "react-redux";
-
 class App extends Component {
   state = {};
 
-  componentWillMount() {
+   componentWillMount() {
       this.props.onGetVendorInformation();
   }
 
