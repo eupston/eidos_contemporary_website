@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import classes from './home.module.css';
 import InstagramQuery from "../../Utils/InstagramQuery";
 import PageHeader from "../../UI/PageHeader/PageHeader";
+import {Link} from "react-router-dom";
+
+
 class Home extends Component {
 
     state = {
@@ -48,6 +51,21 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
+                <PageHeader title="Jewellers"/>
+                    <div className={classes.Jewellers}>
+                        <div className={classes.JewellersOverlay}>
+                            <Link to='/jewelry/gordon-lawrie'>
+                                <img src="https://cdn.shopify.com/s/files/1/0190/6632/3044/files/lawrie-03.jpg?v=1585734960" alt="" />
+                                <p>Gordon Lawrie</p>
+                            </Link>
+                        </div>
+                        <div className={classes.JewellersOverlay}>
+                            <Link to='/jewelry/deborah-alexander'>
+                                <img src="https://cdn.shopify.com/s/files/1/0190/6632/3044/files/alexander-03.jpg?v=1585734960" alt="" />
+                                <p>Deborah Alexander</p>
+                            </Link>
+                        </div>
+                    </div>
                 {instaImageURLs ? <PageHeader title="Follow Us On Instagram"/> : null}
                 <div className={classes.InstagramImages}>
                     {instaImageURLs}
