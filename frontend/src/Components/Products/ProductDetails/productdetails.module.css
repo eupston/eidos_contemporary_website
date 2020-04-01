@@ -29,6 +29,10 @@
     margin: 40px;
 }
 
+.ProductInfo button{
+    margin:20px;
+}
+
 .ProductInfo hr {
     width: 80%;
 }
