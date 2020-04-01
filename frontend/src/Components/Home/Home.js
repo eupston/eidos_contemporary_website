@@ -9,15 +9,23 @@ class Home extends Component {
     }
 
     async componentWillMount() {
-    const instaPosts = await InstagramQuery(6);
+    const instaPosts = await InstagramQuery(5);
+    console.log(instaPosts);
     const imageURLs = instaPosts.map(post => {
-        return post.node.display_url
+        return [post.node.display_url, post.node.shortcode]
     })
       this.setState({instagramImages:imageURLs});
     }
     render() {
-        const instaImageURLs = this.state.instagramImages.map(img => {
-            return <img src={img} width={300} height={300} alt=""/>
+        const instaImageURLs = this.state.instagramImages.map( img => {
+            return (
+                <a key={img} href={"https://www.instagram.com/p/" + img[1] } target="_blank" alt={""}>
+                    <img src={img[0]} alt=""/>
+                    <div className={classes.InstagramOverlay} >
+                        <i className="fa fa-instagram"></i>
+                    </div>
+                </a>
+             );
         })
         return (
             <div className={classes.Home}>
@@ -39,7 +47,7 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <PageHeader title="Instagram Feed"/>
+                {instaImageURLs ? <PageHeader title="Follow Us On Instagram"/> : null}
                 <div className={classes.InstagramImages}>
                     {instaImageURLs}
                 </div>
