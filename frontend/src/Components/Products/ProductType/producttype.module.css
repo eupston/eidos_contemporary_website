@@ -46,23 +46,9 @@
     text-align: center;
     z-index: 2;
     transition: all 0.8s ease 0s;
-    font-size: 30px;
+    font-size: 2vw;
 }
 
 .ProductTypeItems:hover h1 {
-    /*transform: scale(1.05);*/
     opacity: 0.5;
-}
-
-
-@media (min-width: 650px) and (max-width: 950px) {
-    .ProductTypeItems h1 {
-        font-size: 24px;
-    }
-}
-
-@media (max-width: 650px) {
-    .ProductTypeItems h1 {
-        font-size: 18px;
-    }
 }

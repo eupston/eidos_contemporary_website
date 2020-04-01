@@ -3,6 +3,46 @@
     margin-bottom: -20px;
 }
 
+.Jewellers {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center
+}
+
+.Jewellers img{
+    box-shadow: 0 5px 10px gray;
+    width:93%;
+    height:auto;
+}
+
+.JewellersOverlay:hover img{
+    opacity: 0.3;
+    transition: 0.7s ease;
+}
+
+.JewellersOverlay {
+    height:auto;
+    position: relative;
+}
+
+.JewellersOverlay p{
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.8vw;
+    transition: 2.0s ease;
+}
+
+.JewellersOverlay:hover p{
+    color: gray;
+    opacity: 0.6;
+}
+
+
 .InstagramImages{
     display: flex;
     justify-content: space-evenly;
