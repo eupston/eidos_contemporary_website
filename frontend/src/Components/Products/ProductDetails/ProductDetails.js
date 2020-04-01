@@ -55,10 +55,7 @@ class ProductDetails extends Component {
 
     handleSendRequest = async () => {
         if(!this.props.isLoggedIn){
-            // alert("Please Login First.")
-            // window.confirm("Please Click Ok to Confirm Sending this Message.")
             this.setState({showModal:true});
-
         }
         else {
             window.confirm("Please Click Ok to Confirm Sending this Message.")
