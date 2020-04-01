@@ -6,7 +6,6 @@ export const getVendorInformation = () => {
         axios.get('/api/v1/shopify_admin/vendor_product_types')
             .then(response => {
                 if(response.data.success){
-                    console.log("yup")
                     dispatch(setVendorInformationSuccess(response.data.data));
                 }
                 else{
