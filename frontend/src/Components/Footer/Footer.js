@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {Link} from 'react-router-dom';
-import eidosLogo from '../../assets/images/EidosLogo.jpg'
 import './footer.css';
 import Logo from "../../UI/Logo/Logo";
 

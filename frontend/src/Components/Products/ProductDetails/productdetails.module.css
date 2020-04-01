@@ -13,10 +13,6 @@
     color:  #36454f;
 }
 
-.ProductInfo hr {
-    width: 80%;
-}
-
 .ProductInfo{
     display: flex;
     flex-direction: column;
@@ -32,6 +28,16 @@
 .ProductInfo hr {
     width: 80%;
 }
+
+.ProductInfo button{
+    margin: 10px;
+}
+
+.ProductInfo p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 
 .ProductInfo textarea {
     border-color: #36454f;
@@ -85,7 +91,7 @@
 @media (max-width: 600px) {
     .ProductInfo {
         width: 400px;
-        height: 400px;
+        height: 500px;
     }
 
 }
@@ -93,7 +99,7 @@
 @media (max-width: 500px) {
     .ProductInfo {
         width: 350px;
-        height: 400px;
+        height: 500px;
     }
 
 }

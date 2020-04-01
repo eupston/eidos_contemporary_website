@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import classes from './navbar.module.css';
-import eidosLogo from '../../assets/images/EidosLogo.jpg';
 import {Link} from "react-router-dom";
 import {connect} from 'react-redux';
 import './navbarMobile.css'
@@ -88,13 +87,10 @@ class StickyNavbar extends Component {
                 {!this.state.mobile_navbar_active ?
                   <div className={this.state.navBarClasses.join(' ') } id="mainnavbar">
                          {!this.state.isScrolling ? <Logo subtitle={true} size={"5"} /> : null}
-
-
                       <nav className={classes.Navbar}  >
                              <div className={classes.NavbarLeft}>
                                  {this.state.isScrolling ? <Logo subtitle={false} size={"2"} />: null}
                              </div>
-
                              <div className={classes.NavbarMiddle}>
                                  <Link onMouseOver={this.handleOffHover}  to="/">Home</Link>
                                  <span className="nav-item dropdown" onMouseOver={this.handleOnHover} >
@@ -132,7 +128,6 @@ class StickyNavbar extends Component {
                  </div>
                     :
             <div className={classes.NavbarMobile}>
-
                 <div className={classes.NavbarMobileItems}>
                     <button aria-label="Menu"
                             data-header-nav-toggle=""

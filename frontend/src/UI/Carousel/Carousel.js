@@ -7,7 +7,7 @@ const Carousel = (props) => {
     const carouselItems = props.images.map((img, index) => {
         if (index === 0) {
             return (
-                <div className="carousel-item active" onClick={() => props.clickHandler(img.originalSrc)} >
+                <div className="carousel-item active" onClick={props.clickHandler ? () => props.clickHandler(img.originalSrc) : null} >
                     <GlassMagnifier
                         style={{width:props.carousel_item_width +"px", height:props.carousel_item_height + "px", margin: "0 auto"}}
                         alt={index}
