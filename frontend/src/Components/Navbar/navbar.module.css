@@ -10,7 +10,7 @@
 }
 
 .MainBar hr{
-    color: #6a94ac;
+    color: #36454f;
 }
 
 .MainLogoImg {
@@ -45,7 +45,7 @@
 .Navbar a:hover,
 .Navbar a:active,
 .Navbar a:focus{
-    color: gray;
+    color: #36454f;
     background-color: transparent;
 }
 
@@ -55,7 +55,7 @@
     left: 20px;
     vertical-align: top;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 10px;
 
 }
 
@@ -65,7 +65,7 @@
 }
 
 .NavbarMiddle a {
-    color: #6a94ac;
+    color: gray;
     margin: 0px 20px 0px 20px;
     width: 80%;
     text-decoration: none;
@@ -81,7 +81,7 @@
 }
 
 .NavbarRight a {
-    color: #6a94ac;
+    color: gray;
     margin: 0px 6px 0px 6px;
     width: 80%;
     text-decoration: none;
@@ -100,18 +100,18 @@
     align-items: center;
     position: sticky;
     z-index: 1000;
-    top:0;
+    top:0px;
     background-color: white;
 
 }
 .NavbarMobileItems button {
-    margin: 20px 20px 0px 0px;
+    /*margin: 10px 20px 0px 0px;*/
     background-color: transparent;
     border: transparent;
     color: gray;
     position: absolute;
-    left: 30px;
-    top: 0px;
+    left: 15px;
+    top: 10px;
     display: inline-block;
 }
 .NavbarMobileItems button:focus {
@@ -119,12 +119,11 @@
 }
 .NavbarMobileItems button:active,
 .NavbarMobileItems button:hover {
-    color: #6a94ac;
+    color: #36454f;
 }
 
 
-.NavbarMobileItems img {
-    margin: 20px 20px 0px 20px;
-
-}
+/*.NavbarMobileItems img {*/
+/*    margin: 20px 20px 0px 20px;*/
+/*}*/
 

@@ -12,12 +12,16 @@ import Contact from "./Components/Contact/Contact";
 import OurStory from "./Components/OurStory/OurStory";
 import Account from "./Components/Auth/Account/Account";
 import Logout from "./Components/Auth/Logout/Logout";
-
-
+import * as authActions from "./Store/Actions";
+import {connect} from "react-redux";
 class App extends Component {
   state = {};
 
-  render() {
+   componentWillMount() {
+      this.props.onGetVendorInformation();
+  }
+
+    render() {
     return (
       <div className='App' >
         <Navbar />
@@ -37,4 +41,11 @@ class App extends Component {
   }
 }
 
-export default App;
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onGetVendorInformation: () => dispatch(authActions.getVendorInformation()),
+    }
+};
+
+export default connect(null,mapDispatchToProps)(App);

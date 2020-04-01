@@ -41,9 +41,6 @@
 
 
 .Product button {
-    color: gray;
-    border: 1px solid gray;
-    background-color: white;
     width: 75%;
     position: absolute;
     bottom: -10%;
@@ -53,12 +50,12 @@
 }
 
 
-.Product button:hover{
-    background-color: gray;
-    color: white;
-    border: 1px solid gray;
-}
-.Product button:active{
-    background-color: gray;
-    border: 1px solid gray;
-}
+/*.Product button:hover{*/
+/*    background-color: gray;*/
+/*    color: white;*/
+/*    border: 1px solid gray;*/
+/*}*/
+/*.Product button:active{*/
+/*    background-color: gray;*/
+/*    border: 1px solid gray;*/
+/*}*/

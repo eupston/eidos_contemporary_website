@@ -5,6 +5,7 @@ import customerQuery from "../../../Utils/CustomerQuery";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import ShopifyQuery from "../../../Utils/ShopifyQuery";
+import Button from "../../../UI/Button/Button";
 
 class Account extends Component {
     state = {
@@ -46,20 +47,25 @@ class Account extends Component {
             return false;
         }
         const customerData = await customerQuery(this.props.accessToken);
+        const customerHasAddress = customerData.customer.defaultAddress;
         this.setState({
-            addressId: customerData.customer.defaultAddress.id,
             id: customerData.customer.id,
             customerForm: {
             ...this.state.customerForm,
                 firstName: { value: customerData.customer.firstName},
                 lastName: { value: customerData.customer.lastName},
                 email: { value: customerData.customer.email},
-                phoneNumber: { value: customerData.customer.phone},
-                street: { value: customerData.customer.defaultAddress.address1},
-                city: { value: customerData.customer.defaultAddress.city},
-                country: { value: customerData.customer.defaultAddress.country},
-                zip: { value: customerData.customer.defaultAddress.zip}
+                phoneNumber: { value: customerData.customer.phone}
         }});
+        if(customerHasAddress) {
+            this.setState({
+                addressId: customerData.customer.defaultAddress.id,
+                street: {value: customerData.customer.defaultAddress.address1},
+                city: {value: customerData.customer.defaultAddress.city},
+                country: {value: customerData.customer.defaultAddress.country},
+                zip: {value: customerData.customer.defaultAddress.zip}
+            })
+        }
     };
     
     inputChangeHandler = (event) => {
@@ -133,24 +139,22 @@ class Account extends Component {
         }
 
         const response = await ShopifyQuery(customerUpdateQuery);
-        let errors = response.customerUpdate.customerUserErrors;
-        if(errors.length === 0) {
+        const addressResponse = await ShopifyQuery(customerAddressUpdate);
+
+        const errors = response.customerUpdate.customerUserErrors;
+        const addressErrors = addressResponse.customerAddressUpdate.customerUserErrors;
+
+        if(errors.length === 0 && addressErrors.length === 0) {
             this.setState({ success: "Successfully Updated Account Information."});
         }
-        else{
+        else if (errors.length !== 0 ){
             console.log(errors[0].message);
             this.setState({errors:errors[0].message, success:null})
             return false;
         }
-
-        const addressResponse = await ShopifyQuery(customerAddressUpdate);
-        errors = addressResponse.customerAddressUpdate.customerUserErrors;
-        if(errors.length === 0) {
-            this.setState({ success: "Successfully Updated Account Information."});
-        }
         else{
-            console.log(errors[0].message);
-            this.setState({errors:errors[0].message, success:null})
+            console.log(addressErrors[0].message);
+            this.setState({errors:addressErrors[0].message, success:null})
             return false;
         }
 
@@ -259,7 +263,7 @@ class Account extends Component {
                                 value={this.state.customerForm['zip'].value}
                                 onChange={this.inputChangeHandler}
                             />
-                            <button type="submit" className="btn btn-primary" >Update Information</button>
+                            <Button type={'submit'} title={'Update Information'} Inverted={true} />
                         </form>
 
                     </div>

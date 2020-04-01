@@ -10,11 +10,7 @@
 
 .ProductDetails h4{
     margin: 20px;
-    color:  #6a94ac;
-}
-
-.ProductInfo hr {
-    width: 80%;
+    color:  #36454f;
 }
 
 .ProductInfo{
@@ -22,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid #6a94ac;
+    border: 1px solid gray;
     border-radius: 10px;
     width: 500px;
     height: 450px;
@@ -33,26 +29,18 @@
     width: 80%;
 }
 
-.ProductInfo button {
-    color: #6a94ac;
-    border: 1px solid #6a94ac;
-    width: 80%;
-    height:10%;
-    margin: 20px;
-    outline: none;
-    border-radius: 5px;
-    background-color: white;
+.ProductInfo button{
+    margin: 10px;
 }
 
-.ProductDetails button:hover,
-.ProductDetails button:active{
-    background-color: #6a94ac;
-    border: 1px solid #6a94ac;
-    color: white;
+.ProductInfo p {
+    margin-left: 20px;
+    margin-right: 20px;
 }
+
 
 .ProductInfo textarea {
-    border-color: #6a94ac;
+    border-color: #36454f;
     border-radius: 5px;
     width:80%;
     height: 125px;
@@ -70,7 +58,7 @@
 
 .SocialMedia a {
     margin: 20px 20px 20px 20px;
-    color: #6a94ac;
+    color: gray;
     border: none;
     background-color: white;
     font-size: 20px;
@@ -79,6 +67,8 @@
 .SocialMedia a:hover{
     opacity: 0.7;
     background-color: white;
+    color: #36454f;
+
 }
 
 .SocialMedia p {
@@ -101,7 +91,7 @@
 @media (max-width: 600px) {
     .ProductInfo {
         width: 400px;
-        height: 400px;
+        height: 500px;
     }
 
 }
@@ -109,7 +99,7 @@
 @media (max-width: 500px) {
     .ProductInfo {
         width: 350px;
-        height: 400px;
+        height: 500px;
     }
 
 }

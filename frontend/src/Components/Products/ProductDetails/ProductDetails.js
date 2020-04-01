@@ -7,6 +7,7 @@ import customerQuery from "../../../Utils/CustomerQuery";
 import Modal from "../../../UI/Modal/Modal";
 import Login from "../../Auth/Login/Login";
 import Signup from "../../Auth/Signup/Signup";
+import Button from "../../../UI/Button/Button";
 
 class ProductDetails extends Component {
 
@@ -16,7 +17,9 @@ class ProductDetails extends Component {
         hasMadeRequest: false,
         showModal: false,
         authMethod : "Login",
-        signedUp : false
+        signedUp : false,
+        showImgModel:false,
+        imgURLSelected: null
     };
 
     componentWillMount() {
@@ -31,6 +34,16 @@ class ProductDetails extends Component {
         }
     }
 
+    handleImageClick = (imgUrl) => {
+        console.log(imgUrl)
+        this.setState({showImgModel:true, imgURLSelected:imgUrl});
+    }
+
+    handleImageModalHide = () => {
+        this.setState({showImgModel:false, imgURLClick:''});
+    }
+
+
     handleModalHide = () => {
         this.setState({showModal:false, authMethod:"Login"});
     };
@@ -42,10 +55,7 @@ class ProductDetails extends Component {
 
     handleSendRequest = async () => {
         if(!this.props.isLoggedIn){
-            // alert("Please Login First.")
-            // window.confirm("Please Click Ok to Confirm Sending this Message.")
             this.setState({showModal:true});
-
         }
         else {
             window.confirm("Please Click Ok to Confirm Sending this Message.")
@@ -116,6 +126,7 @@ class ProductDetails extends Component {
                     images={this.props.productInfo.images}
                     carousel_item_width={"400"}
                     carousel_item_height={"400"}
+                    clickHandler={this.handleImageClick.bind(this)}
                 />
                 <div className={classes.ProductInfo}>
                     <h4>{this.props.productInfo.title}</h4>
@@ -123,7 +134,7 @@ class ProductDetails extends Component {
                     <hr></hr>
                     <p>{this.props.productInfo.description}</p>
                     {!this.state.hasMadeRequest ?
-                        <button type="button"  onClick={this.handleMakeRequest}>Make Request</button>
+                        <Button title={"Make Request"} onClick={this.handleMakeRequest}/>
                     :
                         null
                     }
@@ -145,12 +156,15 @@ class ProductDetails extends Component {
                                 required
                             />
                             <div className={classes.SendRequestButtons}>
-                                <button type="button" onClick={this.handleSendRequest}>Send</button>
-                                <button type="button" onClick={this.handleCancelRequest}>Cancel</button>
+                                <Button title={"Send"} onClick={this.handleSendRequest}/>
+                                <Button title={"Cancel"} onClick={this.handleCancelRequest}/>
                             </div>
                         </React.Fragment>
                     }
                 </div>
+                <Modal show={this.state.showImgModel} onHide={this.handleImageModalHide} {...this.props} >
+                    <img src={this.state.imgURLSelected} width={"650"} alt={''}/>
+                </Modal>
                 <Modal show={this.state.showModal} onHide={this.handleModalHide} {...this.props} >
                     {this.state.authMethod === "Login" ?
                             this.props.isLoggedIn ?

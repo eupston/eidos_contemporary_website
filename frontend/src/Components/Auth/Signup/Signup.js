@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import classes from '../auth.module.css';
 import PageHeader from "../../../UI/PageHeader/PageHeader";
 import {isNullableType} from "graphql";
+import Button from "../../../UI/Button/Button";
 
 class Signup extends Component {
     state = {
@@ -167,7 +168,7 @@ class Signup extends Component {
                             value={this.state.signupForm['confirmedPassword'].value}
                             onChange={this.inputChangeHandler}
                         />
-                        <button type="submit" className="btn btn-primary" >Signup</button>
+                        <Button type={'submit'} title={'Signup'} Inverted={true} />
                     </form>
                     {this.props.redirect ? this.props.isSignedUp ? <Redirect to="/login"/> : null : null}
                 </div>

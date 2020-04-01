@@ -8,13 +8,26 @@ const initialState = {
         "Deborah Alexander" : {
             "Product Types": ["Rings", "Necklaces"]
             }
-    }
+    },
+    errors: null
 };
 
 const reducer = (state= initialState, action) => {
 
-        return state;
-
+    switch (action.type) {
+        case actionTypes.SET_VENDORS_INFORMATION_SUCCESS:
+            return {
+                ...state,
+                vendors: action.vendors
+            };
+        case actionTypes.SET_VENDORS_INFORMATION_FAILED:
+            return {
+                ...state,
+                errors: action.errors
+            };
+        default:
+            return {...state};
+    }
 };
 
 export default reducer;

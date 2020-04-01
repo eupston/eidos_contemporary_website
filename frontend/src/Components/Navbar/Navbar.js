@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import classes from './navbar.module.css';
-import eidosLogo from '../../assets/images/EidosLogo.jpg';
 import {Link} from "react-router-dom";
 import {connect} from 'react-redux';
 import './navbarMobile.css'
+import Logo from "../../UI/Logo/Logo";
 
 class StickyNavbar extends Component {
     state = {
@@ -28,12 +28,10 @@ class StickyNavbar extends Component {
     handleStickyNavbar = () => {
         const page_position = window.pageYOffset;
         let nav = false;
-        try {
+        if(document.getElementById("mainlogo")) {
             nav = document.getElementById("mainlogo").getBoundingClientRect().top + window.scrollY;
         }
-        catch(err){
-            console.log(err)
-        }
+
         if (page_position==0){
             this.setState({navBarClasses:[classes.MainBar], isScrolling:false});
         }
@@ -72,7 +70,7 @@ class StickyNavbar extends Component {
     vendorDropDowns = Object.keys(this.props.jewelers.vendors).map(ven => {
         const vendorURL = ven.toLowerCase().replace(" ", "-");
         const completeURL = "/jewelry/" + vendorURL;
-        return <Link onClick={() => {
+        return <Link key={ven} onClick={() => {
                                     if (this.state.mobile_navbar_active) {
                                         return this.closeNav();
                                     }
@@ -88,12 +86,11 @@ class StickyNavbar extends Component {
             <React.Fragment>
                 {!this.state.mobile_navbar_active ?
                   <div className={this.state.navBarClasses.join(' ') } id="mainnavbar">
-                         {!this.state.isScrolling ? <img className={classes.MainLogoImg} id="mainlogo" onMouseOver={this.handleOffHover}  src={eidosLogo} ></img> : null}
-                         <nav className={classes.Navbar}  >
+                         {!this.state.isScrolling ? <Logo subtitle={true} size={"5"} /> : null}
+                      <nav className={classes.Navbar}  >
                              <div className={classes.NavbarLeft}>
-                                 {this.state.isScrolling ? <img src={eidosLogo} width={200} ></img> : null}
+                                 {this.state.isScrolling ? <Logo subtitle={false} size={"2"} />: null}
                              </div>
-
                              <div className={classes.NavbarMiddle}>
                                  <Link onMouseOver={this.handleOffHover}  to="/">Home</Link>
                                  <span className="nav-item dropdown" onMouseOver={this.handleOnHover} >
@@ -114,7 +111,7 @@ class StickyNavbar extends Component {
                                     </span>
                                 </span>
                                 <Link onMouseOver={this.handleOffHover} to="/our-story">Our Story</Link>
-                                <Link  to="/custom">Custom</Link>
+                                {/*<Link  to="/custom">Custom</Link>*/}
                                 <Link  to="/contact">Contact</Link>
                             </div>
                             <div className={classes.NavbarRight}>
@@ -127,11 +124,10 @@ class StickyNavbar extends Component {
                                 }
                             </div>
                         </nav>
-                     {!this.state.isScrolling ? <hr style={{width:"80%"}}></hr> :  <hr style={{width:"100%"}}></hr>}
+                     {!this.state.isScrolling ? <hr style={{width:"100%"}}></hr> :  <hr style={{width:"100%"}}></hr>}
                  </div>
                     :
             <div className={classes.NavbarMobile}>
-
                 <div className={classes.NavbarMobileItems}>
                     <button aria-label="Menu"
                             data-header-nav-toggle=""
@@ -150,7 +146,7 @@ class StickyNavbar extends Component {
                         </svg>
                         </span>
                     </button>
-                    <img src={eidosLogo} width={200} ></img>
+                    <Logo subtitle={true} size={"1"} />
              </div>
                 <div id="mySidenav" className="sidenav">
                     <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
@@ -177,7 +173,7 @@ class StickyNavbar extends Component {
                         </ul>
                     </div>
                     <Link onClick={this.closeNav} to="/our-story">Our Story</Link>
-                    <Link onClick={this.closeNav} to="/custom">Custom</Link>
+                    {/*<Link onClick={this.closeNav} to="/custom">Custom</Link>*/}
                     <Link onClick={this.closeNav} to="/contact">Contact</Link>
                     {!this.props.isLoggedIn ?
                         <React.Fragment>

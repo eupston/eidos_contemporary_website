@@ -1,0 +1,42 @@
+.Button{
+    color: #36454f;
+    border: 1px solid #36454f;
+    width: 80%;
+    height:10%;
+    /*margin: 20px;*/
+    outline: none;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.Button:hover,
+.Button:active{
+    background-color: #36454f;
+    border: 1px solid #36454f;
+    color: white;
+}
+
+.Button:focus {
+    outline: none
+}
+
+.InvertedButton{
+    color: white;
+    border: 1px solid #36454f;
+    width: 80%;
+    height:10%;
+    margin: 20px;
+    outline: none;
+    border-radius: 5px;
+    background-color: #36454f;
+}
+
+.InvertedButton:hover,
+.InvertedButton:active{
+    background-color: white;
+    border: 1px solid #36454f;
+    color: #36454f;
+}
+.InvertedButton:focus {
+    outline: none
+}

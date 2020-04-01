@@ -6,6 +6,7 @@
     align-items: center;
     margin:50px;
 }
+
 .CarouselThumbnails {
     display: flex;
     justify-content: center;
@@ -16,4 +17,7 @@
 .CarouselThumbnails li {
     list-style: none;
     margin:10px;
+}
+.Carousel .carousel-inner > .item > img {
+    margin: 0 auto;
 }
