@@ -9,13 +9,14 @@ class Home extends Component {
     }
 
     async componentWillMount() {
-    const instaPosts = await InstagramQuery(5);
-    console.log(instaPosts);
-    const imageURLs = instaPosts.map(post => {
-        return [post.node.display_url, post.node.shortcode]
-    })
-      this.setState({instagramImages:imageURLs});
+        const instaPosts = await InstagramQuery(5);
+        console.log(instaPosts);
+        const imageURLs = instaPosts.map(post => {
+            return [post.node.display_url, post.node.shortcode]
+        })
+          this.setState({instagramImages:imageURLs});
     }
+
     render() {
         const instaImageURLs = this.state.instagramImages.map( img => {
             return (
