@@ -24,7 +24,7 @@ export class Footer extends Component {
                     <ul className="list-unstyled text-small">
                         <li><Link to="#">Returns and Exchanges</Link></li>
                         <li><Link to="#">Shipping Policy</Link></li>
-                        <li><Link to="#">Ethical Trading</Link></li>
+                        <li><Link to="/ethical-trading">Ethical Trading</Link></li>
                         <li><Link to="#">Warranty</Link></li>
                     </ul>
                 </div>

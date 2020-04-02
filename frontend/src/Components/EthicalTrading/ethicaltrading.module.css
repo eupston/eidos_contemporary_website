@@ -1,0 +1,30 @@
+.EthicalTrading p{
+    display: flex;
+}
+
+.EthicalTradingItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: -60px;
+}
+
+.EthicalTradingText {
+    text-align: left;
+    color: gray;
+    width: 80%;
+    margin: 40px;
+}
+.EthicalTradingText h5{
+    margin-bottom: 20px;
+    margin-top: 50px;
+    text-align: left;
+    color: #36454f;
+}
+
+@media (max-width:750px){
+    .EthicalTradingText {
+        width: 80%;
+    }
+}
