@@ -142,8 +142,9 @@ class ProductDetails extends Component {
                     {!this.state.hasMadeRequest ?
                         <div className={classes.SocialMedia}>
                             <p>Contact Us</p>
-                            <a href="https://www.facebook.com/eidosjewelry/" className="fa fa-facebook"/>
-                            <a href="https://www.instagram.com/eidoscontemporary/" className="fa fa-instagram"/>
+                            <a href="https://www.facebook.com/eidosjewelry/" className="fa fa-facebook" target="_blank"/>
+                            <a href="https://www.instagram.com/eidoscontemporary/" className="fa fa-instagram" target="_blank"/>
+                            <a href="https://twitter.com/eidosj" className="fa fa-twitter" target="_blank"/>
                         </div>
                     :
 
