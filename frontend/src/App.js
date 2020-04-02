@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
+import * as authActions from "./Store/Actions";
+import {connect} from "react-redux";
 
 import Home from './Components/Home/Home';
 import Navbar from "./Components/Navbar/Navbar";
@@ -12,8 +14,8 @@ import Contact from "./Components/Contact/Contact";
 import OurStory from "./Components/OurStory/OurStory";
 import Account from "./Components/Auth/Account/Account";
 import Logout from "./Components/Auth/Logout/Logout";
-import * as authActions from "./Store/Actions";
-import {connect} from "react-redux";
+import EthicalTrading from "./Components/EthicalTrading/EthicalTrading";
+
 class App extends Component {
   state = {};
 
@@ -26,6 +28,7 @@ class App extends Component {
       <div className='App' >
         <Navbar />
             <Switch>
+              <Route path='/ethical-trading' render={() => <EthicalTrading />} />
               <Route path='/jewelry' render={() => <Vendors />} />
               <Route path='/our-story' render={() => <OurStory />} />
               <Route path='/login' render={() => <Login redirect={true} />} />
