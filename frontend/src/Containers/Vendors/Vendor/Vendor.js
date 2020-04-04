@@ -12,6 +12,9 @@ const Vendor = (props) => {
     const productTypes = props.jewelers.vendors[props.vendorName]["Product Types"];
 
     const productsRoutes = productTypes.map(prod => {
+        if(!prod){
+            return
+        }
         const productTypeURL = prod.toLowerCase().replace(" ", "-");
         const completeProductURL = match.url + "/" + productTypeURL;
         return <Route

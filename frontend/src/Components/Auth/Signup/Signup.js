@@ -170,7 +170,7 @@ class Signup extends Component {
                         />
                         <Button type={'submit'} title={'Signup'} Inverted={true} />
                     </form>
-                    {this.props.redirect ? this.props.isSignedUp ? <Redirect to="/login"/> : null : null}
+                    {this.props.redirect ? this.state.isSignedUp ? <Redirect to="/login"/> : null : null}
                 </div>
             </React.Fragment>
         );

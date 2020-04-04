@@ -29,10 +29,6 @@ class Product extends Component {
                     <Link  to={productIdURL}>
                         <img src={this.props.productInfo.images[0].originalSrc} alt="Not Available" />
                     </Link>
-                    {/*<button type="button"*/}
-                    {/*        onClick={this.handleModalShow}*/}
-                    {/*        className="btn btn-dark">Quick View</button>*/}
-
                     <Button Inverted={false} title={'Quick View'} onClick={this.handleModalShow} />
                 </div>
                 {this.state.showModal ?

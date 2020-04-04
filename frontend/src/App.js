@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import "./App.css";
 import * as authActions from "./Store/Actions";
 import {connect} from "react-redux";
@@ -37,6 +37,7 @@ class App extends Component {
               <Route path='/account' render={() => <Account/>}/>
               <Route path='/contact' render={() => <Contact/>}/>
               <Route path='/' exact render={() => <Home/>} />
+              <Redirect from="/*" to={"/"}/>
             </Switch>
         <Footer />
       </div>

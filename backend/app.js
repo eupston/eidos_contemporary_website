@@ -61,9 +61,14 @@ app.use('/api/v1/shopify_admin', shopifyAdminRouter);
 app.use('/api/v1/shop', shopRouter);
 
 
+
 app.use(errorHandler);
 
 // catch 404 and forward to error handler
+app.get('*', function(req, res, next){
+    res.status(404).render('404.jade');
+});
+
 app.use(function(req, res, next) {
   next(createError(404));
 });
