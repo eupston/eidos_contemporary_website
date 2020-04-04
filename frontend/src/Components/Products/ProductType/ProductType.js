@@ -30,8 +30,8 @@ class ProductType extends Component {
             <Link className={classes.Link} to={this.props.completeProductURL}>
                 <div className={classes.ProductType}>
                     <div className={classes.ProductTypeItems}>
-                        {productImgElements}
                         <h1>{this.props.productType}</h1>
+                        {productImgElements}
                     </div>
                 </div>
             </Link>

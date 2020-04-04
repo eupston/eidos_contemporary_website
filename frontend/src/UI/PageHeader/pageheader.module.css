@@ -1,11 +1,13 @@
 .PageHeader h5 {
     color: gray;
     margin: 40px;
+    font-size: 100%;
 }
 
 .PageHeader h5:before,
 .PageHeader h5:after {
     background-color: gray;
+    opacity: 0.3;
     content: "";
     display: inline-block;
     height: 1px;

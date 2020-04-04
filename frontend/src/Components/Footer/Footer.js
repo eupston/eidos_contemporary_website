@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {Link} from 'react-router-dom';
-import eidosLogo from '../../assets/images/EidosLogo.jpg'
 import './footer.css';
 import Logo from "../../UI/Logo/Logo";
 
@@ -9,35 +8,40 @@ export class Footer extends Component {
     return (
         <div className="Footer">
             <hr></hr>
-            <div className="row">
-                <div className="col-12 col-md">
-                    {/*<img src={eidosLogo} width={150} ></img>*/}
-                    <Logo subtitle={true} subtitle_size={'6'}/>
-                    <small className="d-block mb-3 text-muted">&copy; Eidos Jewelry 2020</small>
-                    <small className="d-block mb-3 text-muted">508 Camino de la Familia</small>
-                    <small className="d-block mb-3 text-muted">Santa Fe, NM 87501</small>
+            <div className="FooterItems">
+                <div className="AddressItem">
+                    <div className="Logo">
+                        <Logo className="Logomargin" subtitle={true} subtitle_size={'6'}/>
+                    </div>
+                    <small className="d-block text-muted">&copy; Eidos Jewelry 2020</small>
+                    <small className="d-block text-muted">All Rights Reserved</small>
+                    <br/>
+                    <small className="d-block text-muted">508 Camino de la Familia</small>
+                    <small className="d-block text-muted">Santa Fe, NM 87501</small>
                 </div>
-                <div className="col-6 col-md">
+                <div className="FooterItem">
                     <h5>Resources</h5>
                     <ul className="list-unstyled text-small">
-                        <li><Link className="text-muted" to="#">Returns and Exchanges</Link></li>
-                        <li><Link className="text-muted" to="#">Shipping Policy</Link></li>
-                        <li><Link className="text-muted" to="#">Ethical Trading</Link></li>
-                        <li><Link className="text-muted" to="#">Warranty</Link></li>
+                        <li><Link to="#">Returns and Exchanges</Link></li>
+                        <li><Link to="#">Shipping Policy</Link></li>
+                        <li><Link to="/ethical-trading">Ethical Trading</Link></li>
+                        <li><Link to="#">Warranty</Link></li>
                     </ul>
                 </div>
-                <div className="col-6 col-md">
+                <div className="FooterItem">
                     <h5>About</h5>
                     <ul className="list-unstyled text-small">
-                        <li><Link className="text-muted" to="/our-story">Our Story</Link></li>
-                        <li><Link className="text-muted" to="/contact">Contact Us</Link></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/our-story">Our Story</Link></li>
+                        <li><Link to="/contact">Contact Us</Link></li>
                     </ul>
                 </div>
-                <div className="col-6 col-md">
-                    <h5>Follow Us!</h5>
+                <div className="FooterItem">
+                    <h5>Social Media</h5>
                     <ul className="list-unstyled text-small">
-                    <li><i className="fa fa-instagram"></i><a className="text-muted" href="https://www.instagram.com/eidoscontemporary/"> Instagram</a></li>
-                    <li><i className="fa fa-facebook"></i><a className="text-muted" href="https://www.facebook.com/eidosjewelry/"> Facebook</a></li>
+                        <li><i className="fa fa-instagram"></i><a href="https://www.instagram.com/eidoscontemporary/" target="_blank"> Instagram</a></li>
+                        <li><i className="fa fa-facebook-square"></i><a href="https://www.facebook.com/eidosjewelry/" target="_blank"> Facebook</a></li>
+                        <li><i className="fa fa-twitter-square"></i><a href="https://twitter.com/eidosj" target="_blank"> Twitter</a></li>
                     </ul>
                 </div>
             </div>

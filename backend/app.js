@@ -19,6 +19,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const adminRouter = require('./routes/admin');
+const shopifyAdminRouter = require('./routes/shopifyAdmin');
 const shopRouter = require('./routes/shop');
 
 const app = express();
@@ -50,18 +51,24 @@ app.use((req,res,next) => {
 // Mount routers
 // app.use('/', indexRouter);
 
-app.get('/*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/admin', adminRouter);
+app.use('/api/v1/shopify_admin', shopifyAdminRouter);
 app.use('/api/v1/shop', shopRouter);
+
 
 
 app.use(errorHandler);
 
 // catch 404 and forward to error handler
+app.get('*', function(req, res, next){
+    res.status(404).render('404.jade');
+});
+
 app.use(function(req, res, next) {
   next(createError(404));
 });

@@ -49,9 +49,9 @@ localhost:5000/api/v1/users?ring_size[lte]=11&select=name,ring_size // return na
 ```
 
 
-###Deployment:
+### Deployment:
 
-####Staging
+#### Staging
 
 ``cd frontend``
 
@@ -60,3 +60,6 @@ localhost:5000/api/v1/users?ring_size[lte]=11&select=name,ring_size // return na
 Commit and Push Changes on Develop Branch
 
 Merge Develop into Staging
+
+#### Staging Site is Live here: 
+https://eidos-contemporary.herokuapp.com/

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import classes from './navbar.module.css';
-import eidosLogo from '../../assets/images/EidosLogo.jpg';
 import {Link} from "react-router-dom";
 import {connect} from 'react-redux';
 import './navbarMobile.css'
@@ -88,13 +87,10 @@ class StickyNavbar extends Component {
                 {!this.state.mobile_navbar_active ?
                   <div className={this.state.navBarClasses.join(' ') } id="mainnavbar">
                          {!this.state.isScrolling ? <Logo subtitle={true} size={"5"} /> : null}
-
-
                       <nav className={classes.Navbar}  >
                              <div className={classes.NavbarLeft}>
                                  {this.state.isScrolling ? <Logo subtitle={false} size={"2"} />: null}
                              </div>
-
                              <div className={classes.NavbarMiddle}>
                                  <Link onMouseOver={this.handleOffHover}  to="/">Home</Link>
                                  <span className="nav-item dropdown" onMouseOver={this.handleOnHover} >
@@ -115,7 +111,7 @@ class StickyNavbar extends Component {
                                     </span>
                                 </span>
                                 <Link onMouseOver={this.handleOffHover} to="/our-story">Our Story</Link>
-                                <Link  to="/custom">Custom</Link>
+                                {/*<Link  to="/custom">Custom</Link>*/}
                                 <Link  to="/contact">Contact</Link>
                             </div>
                             <div className={classes.NavbarRight}>
@@ -132,7 +128,6 @@ class StickyNavbar extends Component {
                  </div>
                     :
             <div className={classes.NavbarMobile}>
-
                 <div className={classes.NavbarMobileItems}>
                     <button aria-label="Menu"
                             data-header-nav-toggle=""
@@ -178,7 +173,7 @@ class StickyNavbar extends Component {
                         </ul>
                     </div>
                     <Link onClick={this.closeNav} to="/our-story">Our Story</Link>
-                    <Link onClick={this.closeNav} to="/custom">Custom</Link>
+                    {/*<Link onClick={this.closeNav} to="/custom">Custom</Link>*/}
                     <Link onClick={this.closeNav} to="/contact">Contact</Link>
                     {!this.props.isLoggedIn ?
                         <React.Fragment>

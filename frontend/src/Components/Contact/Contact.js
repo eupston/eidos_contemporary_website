@@ -88,7 +88,6 @@ class Contact extends Component {
                 </div>
                 <div className={classes.Contact} >
                     <div className={classes.Address}>
-                        {/*<img src={eidosLogo} width={300} ></img>*/}
                         <Logo size={"3"} subtitle={true}/>
                         <span>
                             <br/>Gordon Lawrie and Deborah Alexander
