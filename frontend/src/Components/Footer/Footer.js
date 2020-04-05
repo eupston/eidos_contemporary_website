@@ -11,7 +11,7 @@ export class Footer extends Component {
             <div className="FooterItems">
                 <div className="AddressItem">
                     <div className="Logo">
-                        <Logo className="Logomargin" subtitle={true} subtitle_size={'6'}/>
+                        <Logo className="Logomargin" subtitle={true} size={'3'}/>
                     </div>
                     <small className="d-block text-muted">&copy; Eidos Jewelry 2020</small>
                     <small className="d-block text-muted">All Rights Reserved</small>
