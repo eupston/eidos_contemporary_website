@@ -15,6 +15,7 @@ import OurStory from "./Components/OurStory/OurStory";
 import Account from "./Components/Auth/Account/Account";
 import Logout from "./Components/Auth/Logout/Logout";
 import EthicalTrading from "./Components/EthicalTrading/EthicalTrading";
+import ResetPassword from "./Components/Auth/ResetPassword/ResetPassword";
 
 class App extends Component {
   state = {};
@@ -32,6 +33,7 @@ class App extends Component {
               <Route path='/jewelry' render={() => <Vendors />} />
               <Route path='/our-story' render={() => <OurStory />} />
               <Route path='/login' render={() => <Login redirect={true} />} />
+              <Route path='/reset-password' render={() => <ResetPassword/>} />
               <Route path='/logout' render={() => <Logout/>} />
               <Route path='/signup' render={() => <Signup redirect={true} />} />
               <Route path='/account' render={() => <Account/>}/>
