@@ -146,7 +146,7 @@ class StickyNavbar extends Component {
                         </svg>
                         </span>
                     </button>
-                    <Logo subtitle={true} size={"1"} />
+                    <Logo subtitle={false} size={"2"} />
              </div>
                 <div id="mySidenav" className="sidenav">
                     <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>

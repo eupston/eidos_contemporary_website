@@ -1,6 +1,8 @@
 .Logo {
-    display:inline;
-    margin-top: 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .Logo h4{
@@ -8,6 +10,8 @@
     color: red;
     letter-spacing:0.2em;
     display:inline;
+    font-size: 100%;
+
 }
 
 .Logo h6{
@@ -15,7 +19,7 @@
     font-family:'Verdana', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     color: gray;
     opacity: 0.8;
-    font-size: 80%;
     letter-spacing:0.2em;
-    margin-left: 10px;
+    margin-left: -10px;
+    font-size: 20%;
 }
