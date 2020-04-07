@@ -21,7 +21,7 @@ const Vendor = (props) => {
             path={completeProductURL}
             render={() => <Products
                 productNumber={14}
-                queryFilterParam={"vendor:" + props.vendorName + " " + "product_type:" + prod}
+                queryFilterParam={"vendor:" + "\'" + props.vendorName + "\'" + " " + "product_type:" + "\'" +  prod + "\'" }
                 completeProductURL={completeProductURL}
                 />
             }/>
@@ -35,7 +35,7 @@ const Vendor = (props) => {
            vendorName={props.vendorName}
            productType={prod}
            productNumber={3}
-           queryFilterParam={"vendor:" + props.vendorName + " " + "product_type:" + prod}
+           queryFilterParam={"vendor:" + "\'" + props.vendorName + "\'" + " " + "product_type:" + "\'" +  prod + "\'" }
        />
     });
     return (

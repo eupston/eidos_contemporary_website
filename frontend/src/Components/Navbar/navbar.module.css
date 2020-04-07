@@ -105,13 +105,12 @@
 
 }
 .NavbarMobileItems button {
-    /*margin: 10px 20px 0px 0px;*/
     background-color: transparent;
     border: transparent;
     color: gray;
     position: absolute;
     left: 15px;
-    top: 10px;
+    top: 20px;
     display: inline-block;
 }
 .NavbarMobileItems button:focus {
@@ -121,9 +120,8 @@
 .NavbarMobileItems button:hover {
     color: #36454f;
 }
-
-
-/*.NavbarMobileItems img {*/
-/*    margin: 20px 20px 0px 20px;*/
-/*}*/
+.NavbarMobileItems h4{
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
 

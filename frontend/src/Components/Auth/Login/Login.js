@@ -109,8 +109,10 @@ class Login extends Component {
                             onChange={this.inputChangeHandler}
                         />
                         <Button type={'submit'} title={'Login'} Inverted={true} />
+                        <Link to={'/reset-password'}>Forgot Password?</Link>
                         {this.props.redirect ?  <p>New Customer? <Link to={'/signup'}>Signup</Link></p> : null}
                     </form>
+
                     {this.props.redirect ? this.props.isLoggedIn ? <Redirect to="/account"/> : null : null}
                 </div>
             </React.Fragment>
